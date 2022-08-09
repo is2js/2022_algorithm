@@ -13,7 +13,7 @@ def process():
     # lst = list(map(int, input().split()))
     lst = sorted(list(map(int, input().split())))
 
-    ## 교훈) 중복관련이면 if set(lst)을 활용해라
+    ## 교훈) 중복관련이면 if len(set(lst))을 활용해라
     ## set(list)를 뒤없은 값을 활용하되, list로 풀어나간다.
     if len(set(lst)) == 1:
         return 50_000 + (lst[0] * 5_000)
@@ -76,6 +76,7 @@ def solution():
 
     ## early return이후 [나머지 return도 조건문]인 경우
     ## -> 삼항 연산자로 대체할 수 있다.
+    ##  ex> 꼬리재귀 -> if종착역 return 결과값변수 / return stack 다음재귀
     def function(x):
         # if x:
         #     return True

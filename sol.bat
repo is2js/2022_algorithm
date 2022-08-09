@@ -35,7 +35,18 @@ if "%1" == "bj" (
         GOTO:EOF
     )
     Set CURRENT_FOLDER=leetcode
-)  else if "%1" == "cpt" (
+)  else if "%1" == "others" (
+    ::others폴더가 없으면 일단 생성한다.
+    if not exist ".\others\" md ".\others"
+    ::others/ 첫번째인수명/ 으로 해당 문제의 폴더를 생성한다.
+    if not exist ".\others\%2" (
+        md ".\others\%2"
+    ) else (
+        echo "already solved problem"
+        GOTO:EOF
+    )
+    Set CURRENT_FOLDER=others
+) else if "%1" == "cpt" (
    ::concept폴더가 없으면 일단 생성한다.
    if not exist ".\concept\" md ".\concept"
    ::concept/ 첫번째인수명/ 으로 해당 문제의 폴더를 생성한다.
