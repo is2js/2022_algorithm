@@ -42,7 +42,7 @@ class NodeList:
             ## 출력상으로 다음차례에 삽입되려면... 나와 <-> 다음 것 사이가 아니라
             #  나 <-> 이전 것 사이에 삽입해야한다.
             #  즉, 시점이동 안해도 된다?
-        print(self)
+        # print(self)
         while current_node.prev:
             if current_node.prev.value == prev_value:
                 new_node = Node(value)

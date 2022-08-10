@@ -58,7 +58,7 @@ if "%1" == "bj" (
    )
    Set CURRENT_FOLDER=concept
 )  else (
-    echo "Must First arguments contains bj, pg, lc, cpt"
+    echo "Must First arguments contains bj, pg, lc, others, cpt"
     GOTO:EOF
 )
 
