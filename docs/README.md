@@ -138,3 +138,95 @@ def combination(prev_cnt, prev_position, prev_result):
   - 종착역반환 -> 자식재귀 반환 -> 재귀정의부 반환 -> 외부에 반환
 
 
+#### 단일 연결리스트 prev데코 객체
+1. prev객체는 new node만 필드로 유지될 예정이다. 
+   - 기존 객체와의 연결은, 새 객체의 prev필드에 넣어서 생성하면, 따로 연결해줄 필요없다.
+2. 구간처리
+   ```python
+   # 구간별 데이터 처리 -> target_data가 내 구간에 안들어오면, 전체 구간의 누적연산 기본값 반환
+   #######
+   # (1) 직전구간의 to를 from으로, (2) 나의 to를 끝구간으로
+   # [1] 직전 구간이 없는 시작특이점 객체거나, 내 lower bound커야한다.(작거나 같으면 내구간 아니다)
+   # lower_bound = self.prev.to
+   # if not self.prev or target_data <= lower_bound: return 0
+   # [2] target_data에 따라서 처리구간이 내 구간의 중간으로 짤리는지, 내 구간전체를 넘어가는지 확인한다.
+   # upper_bound = self.to if target_data > self.to else target_data
+   # target_section = upper_bound - lower_bound
+   # return target_section * money
+   #######
+   ```
+#### 이중 연결리스트 prev, next데코객체
+1. node객체는 data필드를 제외하고, prev, next는 default None의 kwargs로 정의한다.
+2. list객체는, head와 tail필드를 시작/끝 특이점객체로 초기화하도록 정의하고, node_count는 0으로 초기화해서 생성한다.
+   1. 특이점node객체는 data필드 position args None으로, prev/next는 default로 None으로 생성
+   2. count가 있어야, 전체 repr(순회)시 0개시 / get구현시 index 순회의 끝값인 len값 / insert 등이 쉬워진다.
+3. `append_left`메서드부터 구현한다. node의 data값만 받고, 관리객체는 내부생성한다.
+   1. 이중연결리스트는 head, tail을 가지고 있으므로, append_left라도 insert와 유사하다
+      1. `이전node`(self.head)에 위치한 상태에서
+      2. 이전node의 next필드를 통해 -> 이동당할 `다음node`를 챙겨놓는다.
+      3. 챙겨진 양 옆의 node를 바탕으로 `가운데 new node`를 생성할 때, `prev=, next=`필드에 `챙긴 2객체`를  채워넣는다.
+      4. 생성된 `new node`를 양 옆 객체들의 필드(`이전node.next = 다음node.prev` = new node)를 동시할당해주면 연결된다.
+   2. 만약, head.next에 챙길 객체가 없다면, head와 tail사이이고, `미리 2개의 node를 챙겨놓을 필요가 없`이 바로 생성에 head, tail을 사용하여 연결까지한다.
+   3. node_count를 올린다.
+4. **아래 delete를 만드는 방식대로, append_left에서 `요소가 없을 때(next인 tail안챙김)` vs `요소가 있는 상태 add(다 챙김)`의 로직 중, 내부context를 파라미터화 하여, 중복코드를 제거한다**
+   1. 중복 제거할 때는, `특수한 경우, 내부context를 쓰는 로직`을 추출 -> 내부context를 파라미터로 추출 -> 인자 대입 -> 다른 경우에도 사용
+5. append류 개발과 함께 증감하는 self.node_count필드를 이용하여 `__len__` -> `__repr__`를 구현한다
+   1. sections의 repr은 seciton의 repr부터 구현하고 온다.
+   2. 시작을 data node로 하기 위해 curr = .next로 잡고 -> while에서 curr.next를 치니 최소 1개 이상 연결되어야한다는 말이다.
+      1. node_count를 통해 empty string을 return하는 예외처리를 해주자.
+   3. `while curr_node.next`를 통해, next가 None인 특이점객체를 거를 수 있으면서 data가 있는 node만 돌지만
+   4. while 내부에서 `if curr_node.next.next` -> 다음 것의 필드를 조회하여, `다음객체(curr_node.next).next필드의 존재유무`를 검사할 수 있다.
+      1. if 현재.next필드검사 -> 끝 특이점객체 거르는 검사
+      2. **if 현재.next.next필드검사 -> 끝 특이점객체 바로 직전의 data node거르는 검사**
+      3. **`if not 현재.next.next필드`검사 -> 끝 특이점객체 바로 직전의 data node를 선별하는 검사**
+6. `append`메서드를 구현한다. left와 반대로 끝이 tail로 고정이라 미리 안챙겨도 된다.
+   1. tail.prev 챙길 객체가 없다면, head와 tail사이이고, `미리 2개의 node를 챙겨놓을 필요가 없`이 바로 생성에 head, tail을 사용하여 연결까지한다.
+
+
+
+6. `insert`등을 구현 하기 전 index를 통한 순회가 반복될 것이므로 `내수용 self.get()`을 먼저 구현해놓는다.
+7. `get(index)`을 구현한다.
+   1. index 검사 -> len//2 기준으로 head출발 vs tail출발 순회하여 index번째 요소를 반환한다.
+8. `insert(index)`를 get()를 활용해서 구현한다
+   1. 인덱스 검사하되, len index를 허용해야한다. append개념은 len index입력이다.
+   2. 0에 insert는 append_left / len자리  insert는 apppend를 재활용한다
+   3. get()으로 이전 node를 찾고, 필드에서 다음node까지 챙긴 다음 -> 챙긴객체로 curr를 만들고 -> 연결한다
+9. `popleft()` ->`pop()` -> get(index)이용 -> `remove(index)`를 구현한다
+    1. insert는 len index도 허용이지만, remove는 0~len-1검사이다.
+   
+
+
+10. `delete`메서드를 구현한다. index가 아닌 `data(unique해야할 것이다)로 삭제`해보자.
+    1. 순회 전, 존재유무 검사를 먼저 한다
+    2. 순회하면서, data를 가진 curr를 못찾으면 continue, 찾으면 `curr를 바탕으로 3개의 node를 필드로부터 챙긴 뒤 -> 삭제할node를 빼고 서로 연결한다.`
+        - 이 때, `(1) 첫요소 삭제 (2) 마지막요소 삭제 -> 끝+curr로 2개 자동챙김 -> curr로 1개만 챙김 (3) 중간 삭제 -> curr로부터 양옆 2개챙김`의 로직이 달라진다.
+        1. `필드에 해당 data를 가진 curr`를 순회(바텀업)해서 먼저 찾는다.
+        2. head에 붙은 것은 prev를 안챙겨도 되니, head + curr로 next를 챙겨서 삭제한다.
+        3. tail에 붙은 것은 next를 안챙겨도 되니, curr + tail로 prev를 챙겨서 삭제한다.
+        4. **중간 삭제는 위 `2가지 방식을 메서드화` by `안챙겨도 되는 내부context을 변수로 챙기도록`추출한 뒤, 둘 중에 1개 메서드를 재활용한다**
+           1. delete_with_prev( self.head, curr) -> delete_with_prev( curr.prev, curr)로 중간삭제를 만들면 된다.
+           2. tail을 삭제하는 방식으로 하려면, delete_with_next(curr, self.tail) -> delete_with_prev(curr, curr.next)로 중간삭제를 만들면 된다.
+11. `update(data1, data2)`를 구현한다.
+    1. delete에서 쓰인 `순회 전 empty검사` + `처음부터 돌며 curr찾기`를 메서드화해서 재활용한다
+    2. 필드 속 데이터만 바꾸니까.. 할당으로 간단하게 처리하고 반환한다.
+    3. 객체를 꺼냈으면, 수정만 하면 알아서 컬렉션, linkedlist에 반영되어있을 것이다.
+
+12. 2개의 linkedlist를 `연결`해주는 `concat`을 구현한다.
+    - left의 prev로 마지막요소를, right-head의 next로 첫요소를 챙겨서 삭제될 것은 놔두고 양옆을 연결하면 된다.
+    - concat의 결과 요소갯수의 변화가 잇으니 node_count를 업뎃해줘야한다.
+
+13. 전체 순회하여 요소들만 `list로 뽑아서 처리하여 반환`해주는 것들인, `traverse` + `reverse`를 먼저 구현한다
+    1. 그냥 첨부터 끝까지 순회하며 요소만 뽑는  repr 메서드를 복사해와서 참고한다.
+    2. traverse -> reverse 구현한다. `list로 요소들을 반환`한다.
+
+14. traverse를 통해 얻은 list로 `내장sorted를 활용`하여 + `새로운 linkedlist를 만들어 반환`해줄  `sorted`을 구현한다.
+    - sorted는 `traverse`이 반환하는 list  +  `내장sorted`를 활용하여, key와, reverse여부를 받는다.
+    - 내부에서 sort된 node list를 가지고, 새로운 sections를 생성한 뒤, append해서 만들어서 반환한다.
+    - **기존node들로 새로운linked들을 만들 땐, `data만 건네주기`가 되어야한다. append는 node가 아닌 data를 받기 때문에**
+15. dd
+16. `merge_sorted`는 concat과 다르게, 2개의 linkedlist를 `traverse + 내장sorted`로 `이미 정렬된 2개의 list`를 확보해놓고,
+    1. merge_sort 알고리즘 자체가, 이미 오름차순 정렬된 상태에서 비교하므로, 
+       1. traverse시 무조건 오름차순으로 list2개를 확보한다
+       2. 알고리즘에 의해 result에 작은 순으로 append한다.
+    2. merge_sort된 list를 reverse를 줬을 때, list.sort(reverse)로 다 끝나고 마지막에 준다.
+    3. list를 앞에서 만든, list로부터 객체를 만드는 정적팩토리메서드(@classmethod)로 linkedlist를 만들어서 반환한다.
