@@ -1,0 +1,12 @@
+1 0
+2 2
+3 3
+4 7
+Traceback (most recent call last):
+  File "C:/Users/is2js/pythonProject/2022_algorithm/Solution.py", line 89, in <module>
+    dijkstra(start)
+  File "C:/Users/is2js/pythonProject/2022_algorithm/Solution.py", line 38, in dijkstra
+    curr_min_node = poll_smallest_node_in_distance()
+  File "C:/Users/is2js/pythonProject/2022_algorithm/Solution.py", line 18, in poll_smallest_node_in_distance
+    return min_cost_node # 해당node를 반환한다.
+KeyboardInterrupt
