@@ -38,7 +38,7 @@ def solve(cnt, used, val):
 
 
 if __name__ == '__main__':
-    # 완전탐색: 탐색N수 -> 실행시간O(N)으로 비례
+    # 완전탐색: 탐색N수 -> 실행시간O(n)으로 비례
     # -> 최적화나 다른알고리즘(이진탐색)을 이용한다.
     # (1) 순차탐색 -> for로 하나하나 다 돌면서 비교
     # -> 찾으면 index 못찾으면 -1을 반환
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     # 1 2 3 4
     N = int(input().strip())
     numbers = list(map(int, input().split()))
-    # print(N, numbers)
+    # print(n, numbers)
 
     # [1] case별 순열을 만들 때, 각 숫자별 상태값을 먼저 선언하는데
     #     여기서는, 상태값을 [0으로 시작하는 bit]로서, 변수선언 없이, 인자로 시작해 업데이트 한다
@@ -105,7 +105,7 @@ if __name__ == '__main__':
     #
     #     ret = 0
     # -> (2) 그 상태에서 다시 for문을 돌게 된다.
-    #     for i in range(N):
+    #     for i in range(n):
     # ->      (3) 이제는 1이 마킹되어서 자식호출시 패싱될 것이고 배열의 2,3,4만 돌게 될 것이다.
     #         if used & 1 << i:
     #             continue

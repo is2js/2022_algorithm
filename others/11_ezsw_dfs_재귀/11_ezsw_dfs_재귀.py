@@ -70,7 +70,7 @@ if __name__ == '__main__':
     # [1] node, edge수와 그래프는 별개다.
     #     node, edge가 주어진다면 -> f visited배열과 0행렬 graph를 만든다.
     #     -> node갯수 N만큼, visited 마킹배열(상태배열)을 만들고
-    #     -> node갯수만큼의 N by N행렬의 graph를 만든다.
+    #     -> node갯수만큼의 n by N행렬의 graph를 만든다.
     #     -> graph는 인접리스트로 표현할 수 있지만, 여기선 0 초기화 행렬로 표현한다.
     #     -> 인접행렬 node by node란, i->j로 갈 수 있는 정보를 1로 표기한다.
     #                      반대방향이 허용되면, j -> i도 1로 표기하면 된다.
@@ -91,7 +91,7 @@ if __name__ == '__main__':
         # => 이렇게 하면 반복문 속에서, 묶음의 2개 원소를 동시에 배열에서 뽑아내서
         #    2개 원소를 동시에 컨트롤 할 수 있다.
         u, v = values[2 * index], values[2 * index + 1]
-        # print(u, v)
+        # print(first, second)
         # 0 1
         # 0 2
         # 1 3

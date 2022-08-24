@@ -23,10 +23,10 @@ def solution():
     # 0 1 -1 0 1 -1 0 1 -1
     # 0 -1 1 0 1 -1 0 1 -1
     # 0 1 -1 1 0 -1 0 1 -1
-    # N = int(input().strip())
+    # n = int(input().strip())
 
     # # 03 2차원 배열은 횟수만큼 list comp 상에서 list(map())
-    # paper = [list(map(int, input().split())) for _ in range(N)]
+    # paper = [list(map(int, input().split())) for _ in range(n)]
     # print(paper)
 
     # 04 2차원 && 구분자없음 -> map(func, *iterable)의 iterable자리에 문자열을 split없이 바로 넣으면 된다.
@@ -34,8 +34,8 @@ def solution():
     # 011
     # 111
     # 110
-    # N, M = map(int, input().split())
-    # MIRO = [list(map(int, input().strip())) for _ in range(N)]
+    # n, M = map(int, input().split())
+    # MIRO = [list(map(int, input().strip())) for _ in range(n)]
     # print(MIRO)
 
     # 05 차원별 변수들을 이용해서, [특정 값으로 초기화된 배열 선언]하기
@@ -54,7 +54,7 @@ def solution():
     print(f"d1 >>> {d1}")
     print(f"d1-2 >>> {d1_2}")
 
-    # 2차원 -> (1) 열(H, col)갯수만큼 요소 복제해서 1행을 만들고,
+    # 2차원 -> (1) 열(H, b)갯수만큼 요소 복제해서 1행을 만들고,
     #         (2) 그 생성된 행을 [똑같은 상수 행렬]로서 행의갯수 W만큼 append하여 복제한다.
     d2 = [[-1 for _ in range(H)] for _ in range(W)]
     print(f"d2 >>> {d2}")

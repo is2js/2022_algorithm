@@ -139,7 +139,7 @@ if __name__ == '__main__':
     #     -> 먼저 0행렬로 초기화된 인접행렬만들고 -> 정보 받고 -> 채우기
     graph = [[0 for _ in range(N)] for _ in range(N)]
     edge_infos = list(map(int, input().split()))
-    #  values를 2개씩 묶어서 pair로 처리한다면, N//2의 몫으로 돌린 뒤, 배열[2*index], 배열[2*index+1]로 각 pair에 접근한다.
+    #  values를 2개씩 묶어서 pair로 처리한다면, n//2의 몫으로 돌린 뒤, 배열[2*index], 배열[2*index+1]로 각 pair에 접근한다.
     for i in range(E):
         u, v = edge_infos[2 * i], edge_infos[2 * i + 1]
         graph[u][v] = graph[v][u] = 1

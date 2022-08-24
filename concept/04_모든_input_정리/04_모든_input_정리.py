@@ -18,7 +18,7 @@ def solution():
     # (5) 구분자 있는 배열-> list(map(int, input().split()))
     lst = list(map(int, input().split()))
 
-    # (6) 2차원 입력은 [1차원배열 row input] + list comp N회 돌리기 감싸기
+    # (6) 2차원 입력은 [1차원배열 a input] + list comp N회 돌리기 감싸기
     lst_2d = [list(map(int, input().split())) for _ in range(10)]
 
 

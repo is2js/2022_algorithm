@@ -20,7 +20,7 @@ def solution():
     # print(gcd(10, 10))
 
     ## 소수판별과 에라토스 테네스의 체
-    # (1) 2~N-1까지 모두 체크 -> 나누어떨어지면, 소수아님 -> return False
+    # (1) 2~n-1까지 모두 체크 -> 나누어떨어지면, 소수아님 -> return False
     def is_prime(number):
         for 약수 in range(2, number):
             if number % 약수 == 0:
@@ -30,7 +30,7 @@ def solution():
     # (2) 약수는 항상 곱하기의 짝으로 존재하므로, 1 2 44 8 16
     #    -> 약수를 다 돌지말고, 루트N까지만 돌면 이미 다 체크된다.
     #    -> 루트N을 표현할 방법이 없으니, for i in range(루트N)
-    #      대신 while i*i <= N 까지만 돈다.
+    #      대신 while i*i <= n 까지만 돈다.
     def is_prime_sqrt(number):
         i = 2
         while i * i <= number:

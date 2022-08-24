@@ -51,12 +51,12 @@ def solution():
 
     # ## early continue
     # # 잘못 사용한 예
-    # for i in range(N):
+    # for i in range(n):
     #     if state:
     #         process()
     #
     # # early continue
-    # for i in range(N):
+    # for i in range(n):
     #     if not state: continue
     #     process()
 

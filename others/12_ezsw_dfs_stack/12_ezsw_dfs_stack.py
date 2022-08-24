@@ -26,7 +26,7 @@ def dfs(node):
         visited[curr] = True
         print(curr, end=" ")
 
-        # [8] 이제 0~N-1까지 전체node를 확인해서
+        # [8] 이제 0~n-1까지 전체node를 확인해서
         #  (1) 방문한적이 없고, 인접행렬상 인접해있으면, stack에 push한다
         # -> 다음 stack을 돌기 전에, 할 수 있는만큼 순서대로로 다 apped한다
         for next_node in range(N):

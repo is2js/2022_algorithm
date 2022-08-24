@@ -119,7 +119,7 @@ class Sections:
         if index < (self.section_count // 2):
             curr = self.head.next
             # 단순 횟수 반복은 while이 아닌 for _ 문을 이용한다.
-            # index 0 -> 0번이동(반복문x) / 1->1번이동이므로, range(N)을 그대로 이용하면 된다.
+            # index 0 -> 0번이동(반복문x) / 1->1번이동이므로, range(n)을 그대로 이용하면 된다.
             for _ in range(index):
                 curr = curr.next
             return curr
@@ -131,7 +131,7 @@ class Sections:
         # [0 1 [2] 3 4 5] -> 2번 vs 3번
         # [0 1 2 3 [4] 5] -> 4번 vs 1번 -> 5 - (index) = 6-1-(index)
         # => 앞에서 움직일 횟수를, 뒤에서 움직인다면, [-><----] 화살표의 합이 일정하고, 앞에 화살표가 변한다
-        #   range(  N - 1 - index[앞에서 움직이는 횟수] )
+        #   range(  n - 1 - index[앞에서 움직이는 횟수] )
         for _ in range(self.section_count - 1 - index):
             curr = curr.prev
         return curr

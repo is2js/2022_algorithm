@@ -17,7 +17,7 @@ def solution():
     def fill(r, c):
         # 2) 재귀메서드를 정의한다면, stack결정 파라미터들로 종착역을 먼저 작성한다
         # -> board를 벗어난 좌표를 걸어준다.
-        # -> N by N의 좌표는 0~N-1을 벗어나면 종료다.
+        # -> n by N의 좌표는 0~n-1을 벗어나면 종료다.
         if r < 0 or r > N - 1 or c < 0 or c > N - 1:
             # 결과값을 반환할 게 아니라면 그냥 return이다.
             # 만약, board를 파라미터에 넣는다면, 완성된 board를 return
