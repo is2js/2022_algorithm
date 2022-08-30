@@ -28,12 +28,12 @@ def solve(prev_cnt, prev_position, prev_result):
 
     # 4-1) 현재 수numbers[prev_position]이 선택된 node -> cnt+1  /  pos는 무조건 증가 / 현재 뽑으로 뽑은 원소로 -> 누젹결과연산 업데이트
     # -> 가장 큰, 두수의 합-> 초기값을 활용해서 두수의 합을 누적하도록 result를 업데이트한다.
-    # solve(prev_cnt + 1, prev_position + 1, prev_result + numbers[prev_position])
+    # solve(prev_cnt + 1, prev_position + 1, selected_tuple + numbers[prev_position])
     # 4-1) 현재 수numbers[prev_position]이 선택안되 node -> cnt그대로 / pos증가 / 뽑힌 원소x -> 누적결과변화x
-    # solve(prev_cnt, prev_position + 1, prev_result)
+    # solve(prev_cnt, prev_position + 1, selected_tuple)
 
     # 5) 각 node는 누적된 결과값을 반환해주므로 -> 1개로 집계해야한다.
-    #   -> 요구사항대로 두 수의 합이 담긴 누적결과값 prev_result 중 최대값을 뽑게 한다.
+    #   -> 요구사항대로 두 수의 합이 담긴 누적결과값 selected_tuple 중 최대값을 뽑게 한다.
     selected = solve(prev_cnt + 1, prev_position + 1, prev_result + numbers[prev_position])
     unselected = solve(prev_cnt, prev_position + 1, prev_result)
     return max(selected, unselected)
@@ -41,7 +41,7 @@ def solve(prev_cnt, prev_position, prev_result):
     pass
 
     # 조합 완전탐색 템플릿 만들기
-    # solve(prev_cnt, prev_position, prev_result)
+    # solve(prev_cnt, prev_position, selected_tuple)
     solve(0, 0, 0)
 
     def solve(prev_cnt, prev_position, prev_result):
@@ -77,7 +77,7 @@ if __name__ == '__main__':
     # 조합을 위한 탐색을 재귀로 하는 이유
     # -> stack결정변수로 업데이트된 연산의 횟수를 제한할 수 있으며
     # -> 현 상태를 가지고, 여러 case를 동시에 탐색할 수 있다(N개의 다음재귀 호출)
-    # solve(prev_cnt, prev_pos, prev_result)
+    # solve(prev_cnt, prev_pos, selected_tuple)
     print(solve(0, 0, 0))
 
     pass

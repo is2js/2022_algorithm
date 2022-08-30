@@ -7,8 +7,8 @@ def solution():
     # # 01 input1개는 map안쓰고 int(), 2개~3개는 map -> 튜플 언패킹
     # 10 5
     # 1 10 4 9 2 3 8 5 7 6
-    # a, b = map(int, input().split())
-    # print(a, b)
+    # node, b = map(int, input().split())
+    # print(node, b)
     # c = list(map(int, input().split()))
     # print(c)
 

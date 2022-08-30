@@ -84,9 +84,8 @@ echo. >> .\solution.py
 ::echo. >> .\solution.py
 ::echo. >> .\solution.py
 echo if __name__ == '__main__': >> .\solution.py
-echo      pass >> .\solution.py
+echo     pass >> .\solution.py
 ::echo     solution() >> .\solution.py
-
 :: 기존 input, output.txt를 빈 파일로 생성
 type NUL > .\input.txt
 type NUL > .\output.txt

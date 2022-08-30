@@ -61,9 +61,9 @@ if __name__ == '__main__':
 
     ## 문제에 주어지는 모든 간선들에 대해 union 연산을 수행
     # for _ in range(e):
-    #     a, b = map(int, input().split())
+    #     node, b = map(int, input().split())
     #    # 두 node의 최종부모인 root node를 찾아서, 더 큰 부모가 작은 부모를 가리키게 한다.
-        # union_parent(parent_table, a, b)
+        # union_parent(parent_table, node, b)
 
     # print('각 원소가 속한 집합: ')
     # for i in range(1, second + 1):

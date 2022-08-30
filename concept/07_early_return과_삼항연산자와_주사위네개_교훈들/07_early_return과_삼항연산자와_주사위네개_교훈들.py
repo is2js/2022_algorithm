@@ -6,7 +6,7 @@ input = sys.stdin.readline
 def process():
     ## 교훈) 상수가 아니면 언패킹하지말고 묶어라
     ## -> 2개이상이면 일단 묶고 일괄 처리해라
-    # a, b, c, d = map(int, input().split())
+    # node, b, c, d = map(int, input().split())
 
     ## 교훈) 요소들을 대소비교 하는 배열은, 일단 정렬하고 시작하라
     ## -> 객체가 아닌 값의 배열일 때, 주어진 순서와 상관없는 문제면, 일단 정렬하고 시작하라

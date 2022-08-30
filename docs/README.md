@@ -87,7 +87,7 @@ def permutation(prev_cnt, used_bit, prev_result):
    - 그로 인해, 종착역 조건이 position검사 추가되며, 종착역에선 결과값이 아닌, 집계시 없어질 값으로 반환한다.
 
 ```python
-# solve(prev_cnt, prev_position, prev_result)
+# solve(prev_cnt, prev_position, selected_tuple)
 combination(0, 0, 0)
 
 def combination(prev_cnt, prev_position, prev_result):
