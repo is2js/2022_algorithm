@@ -28,3 +28,5 @@ if __name__ == '__main__':
 
     ## 매 쿼리(M)마다 부모로 거슬러 올라가므로, 최악의 경우 O(N) -> O(NM)이 요구되는 코드다.
 
+    # https://www.youtube.com/watch?v=O895NbxirM8&list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC&index=16
+
