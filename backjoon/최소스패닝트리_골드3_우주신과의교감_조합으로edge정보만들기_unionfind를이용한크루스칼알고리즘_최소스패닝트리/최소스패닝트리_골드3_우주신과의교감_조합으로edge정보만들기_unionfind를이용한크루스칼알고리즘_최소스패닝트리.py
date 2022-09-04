@@ -61,7 +61,7 @@ if __name__ == '__main__':
         if prev_position == len(numbers):
             return None
 
-        # numbers 중 첫번째 수 선택한 root_node / 선택하지 않은 root_node
+        # lst 중 첫번째 수 선택한 root_node / 선택하지 않은 root_node
         combination(prev_cnt + 1, prev_position + 1, tuple(selected_tuple + (numbers[prev_position],)))
         combination(prev_cnt, prev_position + 1, tuple(selected_tuple))
         return None

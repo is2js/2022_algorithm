@@ -28,7 +28,7 @@ def solve(prev_cnt, prev_position, prev_result):
 
     # 4-1) 현재 수numbers[prev_position]이 선택된 node -> cnt+1  /  pos는 무조건 증가 / 현재 뽑으로 뽑은 원소로 -> 누젹결과연산 업데이트
     # -> 가장 큰, 두수의 합-> 초기값을 활용해서 두수의 합을 누적하도록 result를 업데이트한다.
-    # solve(prev_cnt + 1, prev_position + 1, selected_tuple + numbers[prev_position])
+    # solve(prev_cnt + 1, prev_position + 1, selected_tuple + lst[prev_position])
     # 4-1) 현재 수numbers[prev_position]이 선택안되 node -> cnt그대로 / pos증가 / 뽑힌 원소x -> 누적결과변화x
     # solve(prev_cnt, prev_position + 1, selected_tuple)
 

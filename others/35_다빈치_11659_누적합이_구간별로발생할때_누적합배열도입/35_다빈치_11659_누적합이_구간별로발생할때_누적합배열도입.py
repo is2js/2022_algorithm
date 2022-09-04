@@ -21,10 +21,10 @@ if __name__ == '__main__':
 
     ### 누적합 알고리즘을 모를 때######################
     # N, M = map(int, input().split())
-    # numbers = [0] + list(map(int, input().split()))
+    # lst = [0] + list(map(int, input().split()))
     # for _ in range(M):
     #     from_, to_ = map(int, input().split())
-    #     print(sum(numbers[from_:to_ + 1]))
+    #     print(sum(lst[from_:to_ + 1]))
 
     ### 누적합 알고리즘을 알 때######################
     N, M = map(int, input().split())

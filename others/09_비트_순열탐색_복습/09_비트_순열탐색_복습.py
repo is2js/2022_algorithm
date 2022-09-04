@@ -80,9 +80,9 @@ def solve(cnt, used_bit, result):
         #     첫번째값만 반영된다.
         #  -> result변수 누적연산식은, 초기값을 넣어놓고 첫번째 뽑힌값과 연산하여 -> 첫번째 나온값이 나오도록 짜면 쉬울 것 같다.
         #  -> 다 짜면, 초기값 대신 직전까지의 old_result인 파라미터 result로 대체한다
-        #  0 * 10 + numbers[index]  = numbers[index]
-        #  result * 10 + numbers[index]
-        # solve(cnt + 1, used_bit | 1 << index, result * 10 + numbers[index])
+        #  0 * 10 + lst[index]  = lst[index]
+        #  result * 10 + lst[index]
+        # solve(cnt + 1, used_bit | 1 << index, result * 10 + lst[index])
 
         # 10) 여기는 자신의 처리 없이, 반복문으로 다음재귀를 뿌리는 것으로 시작하는 중이라
         #     각 case별 node가 시작되는 지점이다.

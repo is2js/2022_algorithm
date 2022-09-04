@@ -36,6 +36,10 @@
       - 사용 확인 시 `if bit & (1<<자리수)`로 확인 
       - 포함 시킬 시 `bit | (1<<자리수)`로 1로 살리기
       - 배제 시킬 시 `bit & ~(1<<자리수)`로 0으로 죽이기
+   4.  bin_정수를_이진수문자열로 변환하여, used bit의 1의 갯수 세기 in 순열
+      - print(bin(11))  # 0b1011
+      - `bin( used_bit ).count('1')`로 1의 갯수 세기
+      - print(bin(11).count('1'))  # 3
 
 
 ### 재귀를 태우는 이유
@@ -223,10 +227,14 @@ def combination(prev_cnt, prev_position, prev_result):
     - sorted는 `traverse`이 반환하는 list  +  `내장sorted`를 활용하여, key와, reverse여부를 받는다.
     - 내부에서 sort된 node list를 가지고, 새로운 sections를 생성한 뒤, append해서 만들어서 반환한다.
     - **기존node들로 새로운linked들을 만들 땐, `data만 건네주기`가 되어야한다. append는 node가 아닌 data를 받기 때문에**
-15. dd
-16. `merge_sorted`는 concat과 다르게, 2개의 linkedlist를 `traverse + 내장sorted`로 `이미 정렬된 2개의 list`를 확보해놓고,
+15. `merge_sorted`는 concat과 다르게, 2개의 linkedlist를 `traverse + 내장sorted`로 `이미 정렬된 2개의 list`를 확보해놓고,
     1. merge_sort 알고리즘 자체가, 이미 오름차순 정렬된 상태에서 비교하므로, 
        1. traverse시 무조건 오름차순으로 list2개를 확보한다
        2. 알고리즘에 의해 result에 작은 순으로 append한다.
     2. merge_sort된 list를 reverse를 줬을 때, list.sort(reverse)로 다 끝나고 마지막에 준다.
     3. list를 앞에서 만든, list로부터 객체를 만드는 정적팩토리메서드(@classmethod)로 linkedlist를 만들어서 반환한다.
+
+
+### 정렬알고리즘 비교표
+- 출저: 동빈나 유튜브
+![image-20220902221321589](https://raw.githubusercontent.com/is3js/screenshots/main/image-20220902221321589.png)
