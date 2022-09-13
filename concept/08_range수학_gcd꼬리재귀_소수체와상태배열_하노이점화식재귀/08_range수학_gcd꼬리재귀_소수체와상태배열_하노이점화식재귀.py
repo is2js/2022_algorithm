@@ -11,10 +11,10 @@ def solution():
 
     ## 유클리드호제법은 꼬리재귀로 외우자
     def gcd(a, b):
-        # node >b
-        # if node % b == 0:
+        # start >b
+        # if start % b == 0:
         #     return b
-        # return gcd(b, node % b)
+        # return gcd(b, start % b)
         return b if a % b == 0 else gcd(b, a % b)
 
     # print(gcd(10, 10))

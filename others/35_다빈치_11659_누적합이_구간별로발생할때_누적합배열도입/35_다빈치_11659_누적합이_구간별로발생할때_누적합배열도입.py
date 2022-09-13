@@ -39,7 +39,7 @@ if __name__ == '__main__':
     #  -> 이렇게 해놓으면, 2번째(5 4)까지의 누적합을 인덱싱으로 바로 알 수 있고
     #  ->  4번째(5 4 3 2)까지의 누적합을 인덱싱으로 바로 알 수 있고
     # 슬라이싱에서 생길 O(N)없이 각 구간까지의 누적합을 바로 알 수 있다.
-    # cf) (Slice	l[node:b]	O(b-node)	l[:] : O(len(l)-0) = O(N))
+    # cf) (Slice	l[start:b]	O(b-start)	l[:] : O(len(l)-0) = O(N))
 
     sum_arr = []
     temp = 0
@@ -48,11 +48,11 @@ if __name__ == '__main__':
         temp += arr[i]
         sum_arr.append(temp)
 
-    # (2) 완성된 구간합배열을 이용하면 node~b까지의 구간합을 인덱싱(O(1))로 구할 수있다.
+    # (2) 완성된 구간합배열을 이용하면 start~b까지의 구간합을 인덱싱(O(1))로 구할 수있다.
     #  -> sum_arr[4] 5+4+3+2  - sum_arr[2] (5+4)
     #  -> sum_arr[4] 5+4+3+2  - sum_arr[1] (5)
     #  ->  =  2~4까지의 구간합
-    #  => a에서b까지의 구간합은, b까지의 구간합 in 구간합배열 - (node-1)**까지의 구간합 in 구간합배열
+    #  => a에서b까지의 구간합은, b까지의 구간합 in 구간합배열 - (start-1)**까지의 구간합 in 구간합배열
     #  로 구해야한다.
     for _ in range(M):
         i, j = map(int, input().split())
@@ -60,8 +60,8 @@ if __name__ == '__main__':
 
         ### 매번 누적합을 구하는 경우
         # sum_a = 0
-        # for node in arr[i:j + 1]:
-        #     sum_a += node
+        # for start in arr[i:j + 1]:
+        #     sum_a += start
         # print(sum_a)
 
         ### for문 대신 sum을 사용하더라도, 인덱싱때문에 똑같다..?!

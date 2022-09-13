@@ -10,14 +10,14 @@ def dijkstra(start):
     # 자료구조를 이용하여, pop된 자식들도 반복수행 하기 위해서, 시작정점도 먼저 넣어준다.
     # -> [자식들은 넣기 전, distance테이블을 업뎃하고 들어가기 때문에, 시작정점은 0으로 cost를 업뎃해준다.]
     # -> 우선순위큐에 넣을 땐, 순위비교할 cost가 맨 앞으로 가도록 튜플을 만들어서 넣어준다.
-    distance[start] = 0 # 큐에 넣기 전엔, [직전최단거리 node]로부터 거리를 업뎃하고 들어가는 규칙.
+    distance[start] = 0 # 큐에 넣기 전엔, [직전최단거리 start]로부터 거리를 업뎃하고 들어가는 규칙.
     # -> 우선순위큐는 업뎃여부로, visited를 대신한다. bfs-queue처럼 넣은 순서대로 나온다면, 고정된 가중치의 똑같은 node는 안들어가게 inqueue전에 넣어주는데
     # -> 우선순위큐는, [직전최단경로node의 인접node로서 업뎃된 후보node]만 넣어주기 때문에 inqueue전 업뎃한다.
     pq.heappush(heap, (0, start)) # list기반 이진힙은 삽입/삭제가 lgN
 
     # 자료구조에서 빼면서 시작하는 것은 while 자료구조:로 다 빠질때까지 진행하게 한다.
     while heap:
-        curr_cost, curr_node = pq.heappop(heap) # tuple  (value, node)를 최소비용인 것을 가져오니, 언패킹해서 받아준다.
+        curr_cost, curr_node = pq.heappop(heap) # tuple  (value, start)를 최소비용인 것을 가져오니, 언패킹해서 받아준다.
 
         # 방문체킹 대신, 업뎃 여부를 통해, 업뎃 안된거면, 이미 방문된 거라 판단하고, 건너띈다.
         # -> 기존까지 비용(INF초기화) vs 현재 후보로서 비용 -> 한번 pop되서 나오면, 최단경로 확정된 상태인데
@@ -59,7 +59,7 @@ def dijkstra(start):
 if __name__ == '__main__':
     ###############
     # => my queue속 비용 업뎃은 [최단거리로서 fix된 node의 인접node로서, 가능성때문에 계속 업뎃],
-    #    queue에서 나오는 순간, [최단거리fix된 node로부터 만들어지는 다음 최단거리 node]로,
+    #    queue에서 나오는 순간, [최단거리fix된 node로부터 만들어지는 다음 최단거리 start]로,
     #    -> 방문체킹 + queue속 인접node들에게 [너네 최단경로에서 나가는 최단경로 후보node들이야. 나로부터 비용으로 예비자가 되도록 업뎃해주께]
     ###############
     # 1. 출발 노드 지정
@@ -82,10 +82,10 @@ if __name__ == '__main__':
     N, M = map(int, input().split())
     start = int(input().strip())
 
-    # graph: 간선정보로 만드는 node 연결 정보
+    # graph: 간선정보로 만드는 start 연결 정보
     # node의 갯수 N만큼  빈 list를 미리 만들어놓고, 간선정보가 입력되게 한다.
     # -> 이렇게 할 경우, 인접행렬이 아니므로 모든 node탐색을 할 필요가 없어진다.
-    # -> row_index = node 번호랑 매핑되는 것. -> 0~ N까지 돌리기 위해 range(n+1)
+    # -> row_index = start 번호랑 매핑되는 것. -> 0~ N까지 돌리기 위해 range(n+1)
     graph = [[] for _ in range(N+1)]
 
     # 다익스트라 필수 distance(최소비용) 테이블 (index = node매핑)

@@ -26,7 +26,7 @@ def dijkstra(start_node):
 
     # 다익스트라 특징: 반복 횟수 == 최소비용으로 뽑힌 횟수 == 마지막node를 제외한 수만큼만 추출
     # -> 마지막node는 뽑아도, 이미 다 방문, 뽑힌 상태라서, 업뎃안되고 최소비용 찾을 때 초기값node만 튀어나와서 오류
-    # -> 1~N까지 node -> N-1번만 반복한다.
+    # -> 1~N까지 start -> N-1번만 반복한다.
     for _ in range(V - 1):
         # distance테이블에서 최소비용 node를 뽑는 것으로부터 시작된다. start_node가 0으로서 먼저 뽑힐 것이다.
         curr_min_cost_node = poll_smallest_cost_node_in_distance()

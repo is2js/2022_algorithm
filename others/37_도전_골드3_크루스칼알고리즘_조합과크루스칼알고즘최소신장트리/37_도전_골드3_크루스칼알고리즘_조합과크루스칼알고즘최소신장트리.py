@@ -63,7 +63,7 @@ if __name__ == '__main__':
     # for _ in range(M):
     #     edge = tuple(map(int, input().split()))
     #     edge.sort()
-    #     except_edges.add((row, col))
+    #     except_edges.add((x, y))
 
     ####### => 이미 연결된 것은 cost를 0으로 주면, 먼저 선택되고 && 거리에 계산도안된다!!
     ######     직접 조합에서 빼줄 필요가 없다.
@@ -100,7 +100,7 @@ if __name__ == '__main__':
         cost, a, b = edge
         # (5) 싸이클 발생시키는 같은 집합 node들끼리의 간선이면 건너띈다.
         if find_parent(parent_table, a) == find_parent(parent_table, b):
-            # print(node, b)
+            # print(start, b)
             # print(parent_table)
             continue
 

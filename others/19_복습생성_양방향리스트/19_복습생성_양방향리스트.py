@@ -35,12 +35,12 @@ class Sections:
             return self.head.next
         # 3) 원소가 기존에 하나라도 있었더라면, insert의 과정이다. 끝은 따로 안챙겨도 되지만
         #    [이전node위치]에서 시작하며, [이동 당하는node]는 [반대방향필드]를 미리 챙겨놔야한다.
-        # (1) [이전node]의 [필드]에서  [이동당하는 node]객체를 미리 챙김한다. -> 이것이 덮어쓰기로 끊어지면 객체는 소멸한다? 그 다음node의prev에 있긴할 것이다.
+        # (1) [이전node]의 [필드]에서  [이동당하는 start]객체를 미리 챙김한다. -> 이것이 덮어쓰기로 끊어지면 객체는 소멸한다? 그 다음node의prev에 있긴할 것이다.
         next = self.head.next
         # (2) 이전node의 챙김을 당한 필드(연결고리)는 새로운node를 연결하도록 덮어쓰기한다
         #    -> 이 때, 필드로부터 챙겨놓은 객체를 활용해서 새 node를 생성한다.
         # next.prev = self.head.next
-        # (3) 이제 챙긴node(이동당하는 node)의 필드를 연결해준다.
+        # (3) 이제 챙긴node(이동당하는 start)의 필드를 연결해준다.
         next.prev = self.head.next = Section(data, prev=self.head, next=next)
         # => add라는 것은 [이전node필드 -> 이동당한node(next)챙김 + 이전node]를 통해, new node의 필드에 연결해주면서 생성하고
         #    생성된 node는, 양옆의 [next, prev필드에 동시할당]으로 한번에 정리할 수 있다.
@@ -71,11 +71,11 @@ class Sections:
             return f"{self.__class__.__name__} is empty."
 
         information = ''
-        curr_section = self.head.next  # head다음 or tail이전인 data node부터 사용한다.
+        curr_section = self.head.next  # head다음 or tail이전인 lst_2d node부터 사용한다.
         while curr_section.next:
             # if 현재.next 검사 -> 끝 특이점객체 거르는 검사
-            # if 현재.next.next필드 검사 -> 끝 특이점객체 바로 직전의 data node거르는 검사
-            # if not 현재.next.next필드 검사 -> 끝 특이점객체 바로 직전의 data node를 선별하는 검사**
+            # if 현재.next.next필드 검사 -> 끝 특이점객체 바로 직전의 lst_2d node거르는 검사
+            # if not 현재.next.next필드 검사 -> 끝 특이점객체 바로 직전의 lst_2d node를 선별하는 검사**
             # -> 특이점객체 직전의 객체를 선별하여, 트레일링 콤마를 제외하고 문자열을 더한다.
             information += repr(curr_section) if not curr_section.next.next \
                 else repr(curr_section) + ' -> '
@@ -152,7 +152,7 @@ class Sections:
         if index == self.section_count: return self.append(data)
         # 이제 index번재 요소를 뒤로 밀어내가 삽입되는 경우
         # -> delete(3개)와 달리 append/append_left의 생성처럼 이전node를 curr로 잡아 node2개를 먼저 챙긴다
-        # -> delete는 data 필터링 순회후 찾는 curr vs 여기선 index 순회용 get(index)로 curr
+        # -> delete는 lst_2d 필터링 순회후 찾는 curr vs 여기선 index 순회용 get(index)로 curr
         prev = self.get(index - 1)
         next = prev.next  # add에서는 curr가 생기니, 양옆객체만 챙겨놓는다.
 
@@ -165,7 +165,7 @@ class Sections:
     # 9)
     def pop_left(self):
         if self.section_count == 0:
-            raise RuntimeError('no data.')
+            raise RuntimeError('no lst_2d.')
         # head / 첫 객체 / 다음객체를 챙긴다
         curr = self.head.next
         next = curr.next
@@ -179,7 +179,7 @@ class Sections:
     # 10)
     def pop(self):
         if self.section_count == 0:
-            raise RuntimeError('no data.')
+            raise RuntimeError('no lst_2d.')
         # 이전객체 / 마지막객체 / tail를 챙긴다
         curr = self.tail.prev
         prev = curr.prev
@@ -210,7 +210,7 @@ class Sections:
     # 12)
     def delete(self, data):
         # (1) select(read)/update/delete는 돌면서 해당데이터를 가진 node를 찾아야한다.
-        # -> 순회 전에 data node가 있는지 확인한다.
+        # -> 순회 전에 lst_2d node가 있는지 확인한다.
         self.check_empty()
         # 필드에 원하는 데이터있는지 바텀업으로 탐색
         curr = self.search(data)
@@ -227,11 +227,11 @@ class Sections:
     def search(self, data):
         curr = self.head.next
         for _ in range(self.section_count):
-            if curr.data == data:
+            if curr.lst_2d == data:
                 break  # 다 검사해서 찾으면 break -> else안거치고 아래로  vs 못찾으면 else문 -> raise
             curr = curr.next
         else:
-            raise ValueError(f"no {data} in data.")  # 1) 못찾을 시
+            raise ValueError(f"no {data} in lst_2d.")  # 1) 못찾을 시
         return curr
 
     def delete_with_next(self, curr, next):
@@ -253,13 +253,13 @@ class Sections:
 
     def check_empty(self):
         if self.section_count == 0:
-            raise RuntimeError('no data.')
+            raise RuntimeError('no lst_2d.')
 
     def update(self, before_data, after_data):
         self.check_empty()
         curr = self.search(before_data)
 
-        curr.data = after_data
+        curr.lst_2d = after_data
 
         return curr
 
@@ -305,7 +305,7 @@ class Sections:
         target = cls()
         for section in raw_sections:
             # 조심.. 새로운 것을 만들 때는, node가 아닌 data만 받는다.
-            target.append(section.data)
+            target.append(section.lst_2d)
         return target
 
     def merge_sorted(self, other, key=None, reverse=False):
@@ -324,7 +324,7 @@ class Sections:
         while first_index < len(first) and second_index < len(second):
             first_section, second_section = first[first_index], second[second_index]
             target = first_section
-            if first_section.data < second_section.data:
+            if first_section.lst_2d < second_section.lst_2d:
                 result.append(target)
                 first_index += 1
                 continue
@@ -392,9 +392,9 @@ if __name__ == '__main__':
 
     print(sections.traverse())  # [Section('추가5'), Section('추가3')]
     print(sections.reverse())  # [Section('추가3'), Section('추가5')]
-    print(sections.sorted(key=lambda x: x.data))  # data필드 기준 정렬
+    print(sections.sorted(key=lambda x: x.lst_2d))  # data필드 기준 정렬
     # [Section(Section('2-1')) -> Section(Section('2-2')) -> Section(Section('추가3')) -> Section(Section('추가5'))]
-    print(sections.sorted(key=lambda x: x.data, reverse=True))  # node의 data필드 기준 정렬
+    print(sections.sorted(key=lambda x: x.lst_2d, reverse=True))  # node의 data필드 기준 정렬
     # [Section(Section('추가5')) -> Section(Section('추가3')) -> Section(Section('2-2')) -> Section(Section('2-1'))]
 
     merged_1 = Sections()
@@ -405,7 +405,7 @@ if __name__ == '__main__':
     merged_2.append(5)
     merged_2.append(4)
     merged_2.append(7)
-    print(merged_1.merge_sorted(merged_2, lambda x: x.data))
-    print(merged_1.merge_sorted(merged_2, lambda x: x.data, reverse=True))
-    new = merged_1.merge_sorted(merged_2, lambda x: x.data)
+    print(merged_1.merge_sorted(merged_2, lambda x: x.lst_2d))
+    print(merged_1.merge_sorted(merged_2, lambda x: x.lst_2d, reverse=True))
+    new = merged_1.merge_sorted(merged_2, lambda x: x.lst_2d)
     print(new)

@@ -48,7 +48,7 @@ class Node:
         # -> 끝까지 + 횟수가 아닌 조건까지 가야할 땐, while문을 쓰자.
         for _ in range(index_):
             curr = curr.next
-        return curr.data
+        return curr.lst_2d
 
     def delete(self, index_):
         # [12] linkedlist에서 메서드 작동 기준은 head이며, 시작을 0번째 요소로 한다
@@ -80,7 +80,7 @@ class Node:
         # -> 끝까지 탐색을 하는 경우, add처럼,
         # -> 미리 head의 필드에 다음이 없는 것은 아닌지
         if self.next is None:
-            print("there is no node except head")
+            print("there is no start except head")
             return
         # 기준은 head지만, 탐색은 업데이트되어야하므로, 첫번째 원소부터 한다.
         curr = self.next
@@ -92,7 +92,7 @@ class Node:
         while curr:
             # 특이점 객체용
             if not curr.next:
-                print(f"{curr.data}asdf")
+                print(f"{curr.lst_2d}asdf")
                 # curr = curr.next
                 # continue
                 # 공통 업데이트로직이 있다면, if continue는 쓰지 않고 return이나 else를 쓴다.
@@ -101,7 +101,7 @@ class Node:
                 # => 마지막이 확실하다면, break,나 early return을 쓴다.
                 # => next데코객체는 끝 특이점객체가 datat가 들어있으니, 사용해야한다.
                 break
-            print(f"{curr.data}", end=" ")
+            print(f"{curr.lst_2d}", end=" ")
             curr = curr.next
 
     def insert(self, index_, node):
@@ -149,11 +149,11 @@ if __name__ == '__main__':
     # [7] 이제 head로부터 다음node를 add한다.
     #     뭔가 들어있으면 그 끝까지 가서 add한다.
     head.add(Node("구독"))
-    print(head.next.data)  # 구독
+    print(head.next.lst_2d)  # 구독
     head.add(Node("좋아요"))
-    print(head.next.next.data)  # 좋아요
+    print(head.next.next.lst_2d)  # 좋아요
     head.add(Node("댓글"))
-    print(head.next.next.next.data)  # 댓글
+    print(head.next.next.next.lst_2d)  # 댓글
 
     # [8] i번째 요소 접근에 계쏙.next로 필드속 저장된 객체를 타고 갈 수 없으니
     # select함수를 만든다.
@@ -174,7 +174,7 @@ if __name__ == '__main__':
     # (3) 삭제할node의 필드에 있는 다음node정보를 -> 이전node의 필드에 덮어써서 연결시킨다.
     # (4) 보존된 삭제node의 위치값을 통해 삭제한다.
     # print(f"삭제전 1번 index {head.select(1)}")
-    # print(f"삭제한 1번 = {head.delete(1).data}")
+    # print(f"삭제한 1번 = {head.delete(1).lst_2d}")
     # print(f"삭제후 1번 index {head.select(1)}")
     # 삭제전 1번 index 좋아요
     # 삭제후 1번 index 댓글

@@ -5,9 +5,9 @@ input = sys.stdin.readline
  
 if __name__ == '__main__':
     ## 트리 기본 개념:가계도와 같은 계층적인 구조를 표현하는 자료구조
-    # root node / leaf node(단말노드, 자식필드? 자식 node가 없는 node)
+    # root start / leaf start(단말노드, 자식필드? 자식 node가 없는 start)
     # 크기: node의 총 갯수
-    # 깊이: root node(0)로부터 거리
+    # 깊이: root start(0)로부터 거리
     # 높이(height) : 깊이 중 최대값
     # 차수(degree) : 자식방향 간선의 갯수 (자식node의 갯수)
     # 트리의 크기N(node갯수) -> 전체 간선의 갯수 N-1 (싸이클없는 트리)
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     #     /  \     /  \
     #    5    23  37  50
     # -> 이진 탐색 트리가 이미 구성되어있다고 가정하고 데이터 조회(37) 과정을 살펴보자.
-    # (1) root node(30)부터 방문해서 탐색 -> 30 < 37 => 오른쪽 방문 => [왼쪽은 방문안하도록 배제]
+    # (1) root start(30)부터 방문해서 탐색 -> 30 < 37 => 오른쪽 방문 => [왼쪽은 방문안하도록 배제]
     # (2) 48 vs 37 => 왼쪽 방문
     # (3) 37 => 탐색 종료
 
@@ -51,7 +51,7 @@ if __name__ == '__main__':
 
     n = int(input().strip())
 
-    # (1) 자신의 data, 및 왼sub의 data, 오sub의 data를 인자로 받아 구성된다.
+    # (1) 자신의 lst_2d, 및 왼sub의 lst_2d, 오sub의 data를 인자로 받아 구성된다.
     # -> input으로 들어오는 정보는 자식들의 left/right정보까진 없이 들어오므로
     # -> 필드에는 left_node가 아닌 left_data만 저장해놓고, 인접dict에서 뽑아쓴다.
     class Node:
@@ -60,7 +60,7 @@ if __name__ == '__main__':
             self.left_data = left_data
             self.right_data = right_data
 
-    # (2) # 인접dict  key: data / value: data + left_data + right_data(input)으로 구성된
+    # (2) # 인접dict  key: lst_2d / value: lst_2d + left_data + right_data(input)으로 구성된
     tree = {}
     for _ in range(n):
         data, left_data, right_data = input().strip().split()
@@ -71,11 +71,11 @@ if __name__ == '__main__':
             left_data = None
         if right_data == 'None':
             right_data = None
-        # 인접dict에는 부모Node로서 자식들은 data(not node)로 가지는 Node객체를 생성하여 매핑해준다.
+        # 인접dict에는 부모Node로서 자식들은 lst_2d(not start)로 가지는 Node객체를 생성하여 매핑해준다.
         tree[data] = Node(data, left_data, right_data)
 
     # (4) main에서 전역 메서드를 통해, 전역변수 [인접dict tree]를 활용해서
-    # -> root node(tree['root'])부터 입력받아 순회한다.
+    # -> root start(tree['root'])부터 입력받아 순회한다.
     # -> 직접적으로 필드로 node들이 연결된 상황은 아니다. -> 인접dict로 통해서 node로 치환해서 연결시켜 호출한다.
     def pre_order(parent_node: Node):
         # (4-1) 전위순위는 들어온 부모node를, 다음 각 stack마다 맨첨에 처리되도록 재귀호출 전에 처리하게 한다.
@@ -95,7 +95,7 @@ if __name__ == '__main__':
         if parent_node.left_data:
             pre_order(tree[parent_node.left_data])
 
-        print(parent_node.data, end=' ')
+        print(parent_node.lst_2d, end=' ')
 
         if parent_node.right_data:
             pre_order(tree[parent_node.right_data])
@@ -108,7 +108,7 @@ if __name__ == '__main__':
         if parent_node.right_data:
             pre_order(tree[parent_node.right_data])
 
-        print(parent_node.data, end=' ')
+        print(parent_node.lst_2d, end=' ')
 
     # (6) 각 순회 메서드에 root node인 A를 넣어준다.
     pre_order(tree['A'])

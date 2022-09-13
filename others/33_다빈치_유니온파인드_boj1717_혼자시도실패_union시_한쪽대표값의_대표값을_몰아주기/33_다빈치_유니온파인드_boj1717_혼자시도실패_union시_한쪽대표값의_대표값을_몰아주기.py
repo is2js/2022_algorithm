@@ -4,12 +4,12 @@ input = sys.stdin.readline
 sys.setrecursionlimit(100_000)
 
 def find_parent(node):
-    # root node, 집합의 대표는 자기자신이 부모이다. 초기화 된 이후 안바뀐다.
+    # root start, 집합의 대표는 자기자신이 부모이다. 초기화 된 이후 안바뀐다.
     if node == parent_table[node]:
         return node
     # 그게 아니라면, 재귀를 통해서 계속 찾아나서야한다.
-    # node -> parent_table[node]로서 찾아나서기
-    # return find_parent(parent_table[node])
+    # start -> parent_table[start]로서 찾아나서기
+    # return find_parent(parent_table[start])
 
     # 그냥 찾아서 반환하지말고, 종착역의 root부모를 반환하면서
     # -> 재귀를 타는 node들 모두 value(부모)값을 root_node로 변경해주고 반환해주자

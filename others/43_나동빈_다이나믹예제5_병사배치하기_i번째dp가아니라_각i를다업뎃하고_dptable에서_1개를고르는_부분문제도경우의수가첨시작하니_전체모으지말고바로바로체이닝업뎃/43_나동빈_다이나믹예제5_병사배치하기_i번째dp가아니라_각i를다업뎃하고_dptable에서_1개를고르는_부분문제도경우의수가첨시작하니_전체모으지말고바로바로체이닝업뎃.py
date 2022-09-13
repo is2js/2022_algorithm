@@ -16,16 +16,16 @@ if __name__ == '__main__':
     # # f(i) = i를 선택 -> f(i-1) 중 i-1전투력 > i전투력여야한다.
     # #        i를 열외 -> f(i-1) 중 i-1전투력 <= i전투력 -> f(i-2)와 동일하다?
     # N = int(input().strip())
-    # data = list(map(int, input().split()))
+    # lst_2d = list(map(int, input().split()))
     #
     # dp = [0] * N
     # dp[0] = 0
-    # dp[1] = data[0]
+    # dp[1] = lst_2d[0]
     #
     # except_count = 0
     # for i in range(2, N):
-    #     case1 = dp[i - 1] + data[i] if data[i-1] > data[i] else 0
-    #     case2 = dp[i - 2] if data[i-1] <= data[i] else 0
+    #     case1 = dp[i - 1] + lst_2d[i] if lst_2d[i-1] > lst_2d[i] else 0
+    #     case2 = dp[i - 2] if lst_2d[i-1] <= lst_2d[i] else 0
     #     if case1 < case2:
     #         except_count += 1
     #     dp[i] = max(case1, case2)

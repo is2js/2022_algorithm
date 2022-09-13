@@ -40,7 +40,7 @@ def bfs(node):
     # ###### append는 중복을 허용하고, 실제방문할 때 체킹해주면, pop되더라도 건너뛴다.
 
     visited[node] = True  # queue를 통한 bfs는 inqueue전에 방문체크해서 다음node전체탐색시 중복이 없게 한다.
-    queue.append(node)  # myqueue.put(node)
+    queue.append(node)  # myqueue.put(start)
 
     # [10] stack이든 queue든 탐색시, 첫번재 것은 넣고 while통과후, 빼서 curr를 만든다.
     while queue:  # while not myqueue.empty():
@@ -85,8 +85,8 @@ def bfs(node):
 
 if __name__ == '__main__':
     ## BFS( breath first search)
-    # -> 그래프(node)순회방법 중 하나
-    # -> 너비우선탐색 -> dfs는 다음재귀(다음node)호출 순서대로 방문하되, 갈 수 있는 만큼 stack을 이어가서 종료되면 다음 node
+    # -> 그래프(start)순회방법 중 하나
+    # -> 너비우선탐색 -> dfs는 다음재귀(다음node)호출 순서대로 방문하되, 갈 수 있는 만큼 stack을 이어가서 종료되면 다음 start
     #              -> bfs는 같은level의 다음node들을 모두 방문 한 다음
     #              ->       그 다음level의 다음node들을 모두 방문 하는 식
 
@@ -96,7 +96,7 @@ if __name__ == '__main__':
     # --> 둘이 순서는 다르지만, 해당depth(같은level)이 아닌 깊어질 수 있는 만큼 깊어짐
 
     # BFS는
-    # tree구조에서는 root node(자신처리있는 재귀정의)에서 시작한다면
+    # tree구조에서는 root start(자신처리있는 재귀정의)에서 시작한다면
     # -> depth별(같은level)별 먼저 다 방문하게 된다.
 
     # BFS의 경우, 간선의 가중치가 없다고 한다면,
@@ -124,14 +124,14 @@ if __name__ == '__main__':
     #                                             n개의 출발점마다 사용되는 것이 다르므로, 각각 관리되어야한다.
     #        (1-2) dfs-재귀(그래프 속 인접node들 탐색 -> 순열이나 마찬가지. 사용후 재사용금지)
     #        (1-3) dfs-stack(그래프 속 인접node들 탐색 -> 순열이나 마찬가지. 사용후 재사용금지)
-    #     ===> my) 순서가 중요한 순열, 그래프(node)탐색은 visited배열이 있어야한다.
+    #     ===> my) 순서가 중요한 순열, 그래프(start)탐색은 visited배열이 있어야한다.
     #              객체라면, boolean필드를 toggle로 가능할 듯.
     #     -> (2) graph(from node갯수 by node갯수)-> 간선정보로 1마킹
     #     ===> my) 간선정보가 있다면, 무조건 만들어야한다.
     #     ===> 0행렬로 먼저 초기화하고 -> 간선정보로 1을 채워넣는다.
     #          가중치가 있을 경우, 0->1이 아니라 다른 것도 들어가기 때문에 False가 아닌 0으로 초기화한다.
     N, E = map(int, input().split())
-    # [2] node -> node탐색은 root node가 정해진 순열 -> visited생각(재귀라면 전역변수로서 먼저 선언)
+    # [2] start -> node탐색은 root node가 정해진 순열 -> visited생각(재귀라면 전역변수로서 먼저 선언)
     #             root node가 1개로 정해져있다면, 전역변수로 상태관리한다.
     #             root node가 여러개이고 각각이 다른 case(순열탐색)이라면, 첫 재귀 내부에서 각 root마다 값으로 상태관리를 업데이트해서 진행하게 해야한다.
     #

@@ -10,7 +10,7 @@ def process():
     # row의 시작과 끝을 돌리면서, row별 구간처리한다.
     total_sum = 0
     for row in range(srt_row, end_row + 1):
-        # for col in range(srt_col, end_col + 1):
+        # for y in range(srt_col, end_col + 1):
         # 구간처리는 to배열을, B - (A-1)  O(1)으로 처리하므로, 반복문을 안돌려도 된다.
         row_section_sum = prefix_matrix[row][end_col] - prefix_matrix[row][srt_col - 1]
         total_sum += row_section_sum

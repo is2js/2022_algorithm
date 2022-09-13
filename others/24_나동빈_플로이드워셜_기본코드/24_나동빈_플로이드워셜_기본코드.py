@@ -16,7 +16,7 @@ if __name__ == '__main__':
     ## 점화식
     # Dab = min(Dab, Dak + Dkb)
     # -> 각 단계마다 특정노드 k를 거쳐가는 경우를 확인한다.
-    # -> node to b 비용 vs node to k to b 비용 비교
+    # -> start to b 비용 vs start to k to b 비용 비교
     # 2차원 테이블: 행은 출발node 열은 도착node를 의미함.(인접행렬로 초기화)
     # (1) 이중반복문으로 Dab를 구하되
     # (2) 현재k에 대해 반복문을 돌려, Dak+Dkb를 구해 갱신하는 3중 반복문
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     ## boj 11404: https://www.acmicpc.net/problem/11404
     INF = float('inf')
 
-    n = int(input().strip())  # node 갯수
+    n = int(input().strip())  # start 갯수
     m = int(input().strip())  # edge 갯수
     # graph 인접행렬을 INF로 초기화 -> 자기자신으로 가는 것은 weight(cost) 0 -> 간선정보(weight, cost)를 입력함
     # graph = [[INF for _ in range(n + 1)] for _ in range(n + 1)]
@@ -43,8 +43,8 @@ if __name__ == '__main__':
         if weight < graph[u][v]:
             graph[u][v] = weight
 
-    # 반복문으로 거쳐갈 k node를 돌면서, 모든 node, b node를 이중반복문을 통해 업데이트한다.
-    # Da,b = min( Da,b  Da,b + Dk,b) -> for k    for node for b
+    # 반복문으로 거쳐갈 k node를 돌면서, 모든 start, b node를 이중반복문을 통해 업데이트한다.
+    # Da,b = min( Da,b  Da,b + Dk,b) -> for k    for start for b
     for k in range(1, n + 1):
         for a in range(1, n + 1):
             for b in range(1, n + 1):

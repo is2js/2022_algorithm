@@ -8,7 +8,7 @@ def dfs(node):
     #   -> dfs node탐색은, 마지막node에서 종료되는 종착역이 없다.
 
     # [7] 자신의처리에서 전역변수를 터치한다 -> 다음재귀들 호출부터 안하면,
-    #     최초인자 0(node)의 처리부터 간다는 뜻이다.
+    #     최초인자 0(start)의 처리부터 간다는 뜻이다.
     #     0 node부터 다음재귀로 갈라진다.
     # -> 현재node를 전역변수인 상태배열에 체크해준다.
     #    진행node마다 독립적이라면, 상태배열or상태비트를 인자로 들고다니지만,
@@ -26,7 +26,7 @@ def dfs(node):
     #     -> 0부터 4번 node를 일단 다 돌린다.
     for next_node in range(N):
         # [10] 인접행렬을 통해, 인접한node로서 이동가능한지 확인한다.
-        # if graph[node][next_node]:
+        # if graph[start][next_node]:
         # [11] 상태배열에서 아직 방문안한 node만 이동가능하다.
         # -> 2가지 조건이 다 필요하다. (방문상태배열 + 인접행렬)
         if not visited[next_node] and graph[node][next_node]:
@@ -61,18 +61,18 @@ if __name__ == '__main__':
 
     ## 입력으로 graph를 주는 방법
     ## -> node갯수 5 / 간선의 갯수 6이 주어지며
-    ## -> node 쌍으로 간선의 정보 직접줘야한다
+    ## -> start 쌍으로 간선의 정보 직접줘야한다
     ##   0 1 / 0 2 / 1 3 / 1 4/ 2 4 / 3 4
     ## -> 방향성을 안준다면, 0->1  1->0 모두 가능한 것이다.
     # 5 6
     # 0 1 0 2 1 3 1 4 2 4 3 4
     N, E = map(int, input().split())
-    # [1] node, edge수와 그래프는 별개다.
-    #     node, edge가 주어진다면 -> f visited배열과 0행렬 graph를 만든다.
+    # [1] start, edge수와 그래프는 별개다.
+    #     start, edge가 주어진다면 -> f visited배열과 0행렬 graph를 만든다.
     #     -> node갯수 N만큼, visited 마킹배열(상태배열)을 만들고
     #     -> node갯수만큼의 n by N행렬의 graph를 만든다.
     #     -> graph는 인접리스트로 표현할 수 있지만, 여기선 0 초기화 행렬로 표현한다.
-    #     -> 인접행렬 node by node란, i->j로 갈 수 있는 정보를 1로 표기한다.
+    #     -> 인접행렬 start by node란, i->j로 갈 수 있는 정보를 1로 표기한다.
     #                      반대방향이 허용되면, j -> i도 1로 표기하면 된다.
     visited = [False for _ in range(N)]
     graph = [[0 for _ in range(N)] for _ in range(N)]
@@ -99,7 +99,7 @@ if __name__ == '__main__':
         # 2 4
         # 3 4
         # [3] 2개씩 순서대로 뽑혔다면, 인접행렬에 간선정보를 표기해준다.
-        # -> 방향성이 없다면, 양 node 둘다 1을 넣어줘야한다.
+        # -> 방향성이 없다면, 양 start 둘다 1을 넣어줘야한다.
         graph[u][v] = graph[v][u] = 1
     # print(graph)
     # [4] 인접행렬이란? -> 현재node가 방문할 수 있는지 ==인접해있는지 정보를 준다.
@@ -112,7 +112,7 @@ if __name__ == '__main__':
     # [5] dfs를 재귀로 호출하는 데, stack결정변수는 node이며,
     #     depth마다 업데이트되거나 누적되는연산은 없이,
     #     전역변수 visited를 터치하고, 전역변수 graph만 참고한다.
-    # 최초인자로 root node, 시작node를 넣어준다.
+    # 최초인자로 root start, 시작node를 넣어준다.
     dfs(0)
 
 

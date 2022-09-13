@@ -6,7 +6,7 @@ if __name__ == '__main__':
     N, M = map(int, input().split())
     INF = float('inf')
 
-    # node->b가 아닌 최단경로 node->k->b는 플로이드워셜로 풀어야한다.
+    # start->b가 아닌 최단경로 start->k->b는 플로이드워셜로 풀어야한다.
     # -> 2차원 인접행렬이면서, INF초기화 + 자기자신으로 가는 것은 0으로 초기화
     distance = [[INF] * (N + 1) for _ in range(N + 1)]
     for row in range(len(distance)):
@@ -18,7 +18,7 @@ if __name__ == '__main__':
         distance[u][v] = distance[v][u] =  1 # 가중치가 없거나 같을 경우 1
 
     X, K = map(int, input().split())
-    # node->b를 도는데, 가장바깥에서 거쳐가는 경로 k를 돌린다.
+    # start->b를 도는데, 가장바깥에서 거쳐가는 경로 k를 돌린다.
     # 여기서 자기자신으로 가는 것은 건너띈다.
     # => Da,b = min( Da,b , Da,k + Dk,b)로 k를 거쳐갔을 때 최단경로이면 업데이트한다.
     for k in range(1, N+1):

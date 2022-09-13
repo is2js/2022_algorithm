@@ -59,7 +59,7 @@ if __name__ == '__main__':
     # => python sort()는, 힙정렬/퀵정렬?처럼 O(NlogN)의 시간이 소요된다.
 
     v, e = map(int, input().split())
-    # (0) 최소신장트리를 구성하는 edge수 == node -1이므로,
+    # (0) 최소신장트리를 구성하는 edge수 == start -1이므로,
     #  -> input되는 edge는 이것보다 많아야지 골라서 최소비용 순으로 싸이클을 안만드는 edge들을 선택할 수 있다.
 
     # (1) 싸이클여부판별용 unionfind 구현을 부모테이블

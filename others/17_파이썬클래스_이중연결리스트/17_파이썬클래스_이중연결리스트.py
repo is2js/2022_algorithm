@@ -40,7 +40,7 @@ class Sections:
         # -> 0번째 자리는 self.head.next를 덮어쓰는 것이므로, 그이전에 챙겨놨다가 활용한다.
         next = self.head.next  # (1) 이전node필드 덮어쓰기 전에 챙기기
         # python에서는 똑같은 것 할당을 동시에 할 수 있음.
-        # next.prev = self.head.next = Section(data, prev=self.head, next=next)  # (2) 새node에 챙긴 것 활용
+        # next.prev = self.head.next = Section(lst_2d, prev=self.head, next=next)  # (2) 새node에 챙긴 것 활용
         section = Section(data, prev=self.head, next=next)
         self.head.next = section  # (2) 새node에 챙긴 것 활용
         next.prev = section
@@ -71,9 +71,9 @@ class Sections:
             # 시작특이점 객체 있으므로 필드로 검사한다.
             while curr.prev:
                 if count == self.node_count:
-                    print(f"{curr.data}")
+                    print(f"{curr.lst_2d}")
                     break
-                print(f"{curr.data}", end=" ")
+                print(f"{curr.lst_2d}", end=" ")
                 count += 1
                 curr = curr.prev
             return
@@ -82,16 +82,16 @@ class Sections:
         # -> while문의 기준을 객체로두면, 시작특이점 객체
         # -> 그 전까지 가려면, self.node_count를 확인하면 될 것 같다.
         # for _ in range(self.node_count):
-        #     print(f"{curr.data}", end=" ")
+        #     print(f"{curr.lst_2d}", end=" ")
         #     curr = curr.next
         # => data가 없는 끝 특이점(tail)이 존재하면, 그것만 .next가 null이기 때문에
         #    while문을 필드검사한다.
         while curr.next:
             # print(count, self.node_count)
             if count == self.node_count:
-                print(f"{curr.data}")
+                print(f"{curr.lst_2d}")
                 break
-            print(f"{curr.data}", end=" ")
+            print(f"{curr.lst_2d}", end=" ")
             count += 1
             curr = curr.next
         # print(f"({self.node_count}개)")
@@ -134,7 +134,7 @@ class Sections:
             #                       -> while문에서는 공통 업뎃문이 있기 때문에 early continue는 업뎃문반복할 거아니면 못쓴다.
             # 여기서 다르면 early continue하고 싶지만, 공통업뎃문이 존재해서..
             # -> 찾으면 break이므로 공통없뎃문이 아니네?!!
-            if curr.data != data:
+            if curr.lst_2d != data:
                 curr = curr.next  # 업뎃문 + continue -> 아닌 경우에는 break라서 가능
                 continue
             # [16] 데이터가 head vs tail  vs 중간에 있는 것에 따라 처리가 또 달라진다.
@@ -200,7 +200,7 @@ class Sections:
             self.node_count -= 1
             return curr
         # [15] 다돌앗는데도 해당 데이터가 없다면 -> 에러내야한다.
-        raise RuntimeError("no data")
+        raise RuntimeError("no lst_2d")
 
     def insert(self, index_, data):
         # [17] index 범위 검사 with nodeCount
@@ -241,7 +241,7 @@ class Sections:
 
         self.node_count += 1
         ## 강의 정리
-        # t = Section(data, next=curr.next)
+        # t = Section(lst_2d, next=curr.next)
         # -> 일단, 현재.next로 next필드만 채운 상태로 새로운 node를 생성한다.
         # t.prev= n -> 생성후 prev필드를 현재node로 채운다.
         # t.next.prev=t -> 끊어진 node를 앞뒤로 연결한다

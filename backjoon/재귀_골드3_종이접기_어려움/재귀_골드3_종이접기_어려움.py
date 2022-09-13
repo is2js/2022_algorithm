@@ -82,11 +82,11 @@ def solve(f_h_count, f_v_count, srt_row, srt_col, end_row, end_col):
             # 모든 열을 다 돌면서, D의 반대인
             for col in range(srt_col, end_col + 1):
                 # 접히기 전 row로 돌아가서, 거기서부터 1개, 거기서부터 2개씩 내려가며 처리해줘야한다.
-                # paper[srt_row + row][col] = f"check{f_v_count, unfold_count[f_v_count]}"
+                # paper[srt_row + x][y] = f"check{f_v_count, unfold_count[f_v_count]}"
                 # -> 직전좌표기준으로, 참조할 좌표를 확인한 뒤,
                 # -> 직전좌표는 start을 index0으로 생각하고 식을 작성하면 된다.
                 # ->  대칭 좌표 [len - 1 - 대칭index] = 마지막index - 대칭index
-                # paper[srt_row + row][col] = paper[end_row - row][col]
+                # paper[srt_row + x][y] = paper[end_row - x][y]
                 # -> 이제 각 stack마다, 참조 값h에 따라 stack에 맞게 매핑해주는 h_candidates를 사용해주면 된다.
                 paper[srt_row + moving_row][col] = h_candidates[paper[end_row - moving_row][col]]
 

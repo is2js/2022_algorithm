@@ -11,7 +11,7 @@ def poll_smallest_node_in_distance():
         # queue가 아니므로, 방문 마킹확인해서, 방문안한 것만 조회한다.
         if visited[index]:
             continue
-        # 당시의 index(node)를 알아야하므로, min()이 아닌 if로 최소값 업뎃 + index를 건져낸다.
+        # 당시의 index(start)를 알아야하므로, min()이 아닌 if로 최소값 업뎃 + index를 건져낸다.
         if distance[index] < min_cost:
             min_cost = distance[index]
             min_cost_node = index
@@ -53,7 +53,7 @@ def dijkstra(start):
 if __name__ == '__main__':
     ###############
     # => my queue속 비용 업뎃은 [최단거리로서 fix된 node의 인접node로서, 가능성때문에 계속 업뎃],
-    #    queue에서 나오는 순간, [최단거리fix된 node로부터 만들어지는 다음 최단거리 node]로,
+    #    queue에서 나오는 순간, [최단거리fix된 node로부터 만들어지는 다음 최단거리 start]로,
     #    -> 방문체킹 + queue속 인접node들에게 [너네 최단경로에서 나가는 최단경로 후보node들이야. 나로부터 비용으로 예비자가 되도록 업뎃해주께]
     ###############
     # 1. 출발 노드 지정
@@ -93,7 +93,7 @@ if __name__ == '__main__':
         # -> 반복문에 걸었는데, []로 없으면 반복문이 자동skip되서 좋다.
         graph[u].append((v, w))
 
-    # 다익스트라는, root node(시작 정점)이 필수다
+    # 다익스트라는, root start(시작 정점)이 필수다
     dijkstra(start)
 
     # 다익스트라를 다 돌고나면, distance가 최단경로들로 업뎃되어있다.

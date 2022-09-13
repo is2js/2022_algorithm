@@ -6,11 +6,11 @@ input = sys.stdin.readline
 def process():
     # ######### 내 풀이
     # n, m = map(int, input().split())
-    # data = list(map(int, input().split()))
+    # lst_2d = list(map(int, input().split()))
     # # 열의 갯수만큼 구간을 만들고, 구간index * 열의갯수 + 현재열수로 해당구간의 요소들을 컨트롤 할 수 있다?!
     # board = []
-    # for i in range(len(data) // m):
-    #     board.append(data[i * m: (i + 1) * m])
+    # for i in range(len(lst_2d) // m):
+    #     board.append(lst_2d[i * m: (i + 1) * m])
     #
     # # f(i) = k(i번재열 3택1) + f(i-1)
     # # => 무조건 택1이 아니라, 제한이 있다. 만약, 맨 아래나 맨위에서 정답이 나온 경우, 다음열의 반대끝은 선택할 수 없음.
@@ -24,11 +24,11 @@ def process():
     # #
     # d = [0] * m
     # # 점화식에 i-1이 존재하므로 0번은 채우고, 1번부터 하자.
-    # d[0] = max(board[row][0] for row in range(n))
+    # d[0] = max(board[x][0] for x in range(n))
     #
     # for i in range(1, m):
-    #     for row in range(n):
-    #         k = board[row][i]
+    #     for x in range(n):
+    #         k = board[x][i]
     #         d[i] = max(d[i], k + d[i - 1])
     #
     # print(d)
@@ -37,7 +37,7 @@ def process():
     n, m = map(int, input().split())
     data = list(map(int, input().split()))
     ## (1) dp table을 2차원으로 생성하기 위해 빈 list를 만든다.
-    # -> row별 받을 것이므로, 빈 list에 row list를 append하여 행렬을 만든다
+    # -> row별 받을 것이므로, 빈 list에 x list를 append하여 행렬을 만든다
     dp = []
     ## (2) 2차원dp는 dp table이자, data행렬이다.
     # -> 초기데이터를 다 넣어놓는다.

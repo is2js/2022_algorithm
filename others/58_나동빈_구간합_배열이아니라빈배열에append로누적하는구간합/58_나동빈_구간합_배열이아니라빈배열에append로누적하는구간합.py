@@ -28,7 +28,7 @@ if __name__ == '__main__':
     # prefix_sum = [0] * (n + 1)
     prefix_sum = [0] # 시작특이점 객체. 구간은 1번구간부터 시작할 것임.
 
-    # for i in range(len(data)):
+    # for i in range(len(lst_2d)):
     for number in data: # 해당 수만 누적하고, 그때까지의 누적합을 append만 하면 되므로, index가 아닌 data로 돌린다.
         # (2) 매번 누적변수에 누적하고
         sum_value += number

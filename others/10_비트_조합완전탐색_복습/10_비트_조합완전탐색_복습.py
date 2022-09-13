@@ -9,7 +9,7 @@ def solve(prev_cnt, prev_position, prev_result):
         return prev_result
     # 6) 조합재귀 탐색의 경우, 2개씩 node가 갈라지면서, node가 죽지 않는 경우가 없는 완전 탐색이다.
     # -> 그 결과 prev_cnt가 2로 차지않고 계속 증가하면서 node를 뻗어나갈 수도 있다.
-    # -> stack결정변수가 업데이트되지 않는 경우(조합탐색 중 원소선택x node)
+    # -> stack결정변수가 업데이트되지 않는 경우(조합탐색 중 원소선택x start)
     # -> 항상 업데이트 되는 원소position으로 종착역을 걸되,
     #    정답 집계시 사라질 값으로 건다 ex> 최대값 -> -1반환
     if prev_position == N:
@@ -26,10 +26,10 @@ def solve(prev_cnt, prev_position, prev_result):
     #   -> **현재의 상태에 있는 prev_position의 index 배열값을 선택**하는 것이기 때문에
     #   -> pos+1과 별개로 lst[pos]의 값으로 누적연산한다.
 
-    # 4-1) 현재 수numbers[prev_position]이 선택된 node -> cnt+1  /  pos는 무조건 증가 / 현재 뽑으로 뽑은 원소로 -> 누젹결과연산 업데이트
+    # 4-1) 현재 수numbers[prev_position]이 선택된 start -> cnt+1  /  pos는 무조건 증가 / 현재 뽑으로 뽑은 원소로 -> 누젹결과연산 업데이트
     # -> 가장 큰, 두수의 합-> 초기값을 활용해서 두수의 합을 누적하도록 result를 업데이트한다.
     # solve(prev_cnt + 1, prev_position + 1, selected_tuple + lst[prev_position])
-    # 4-1) 현재 수numbers[prev_position]이 선택안되 node -> cnt그대로 / pos증가 / 뽑힌 원소x -> 누적결과변화x
+    # 4-1) 현재 수numbers[prev_position]이 선택안되 start -> cnt그대로 / pos증가 / 뽑힌 원소x -> 누적결과변화x
     # solve(prev_cnt, prev_position + 1, selected_tuple)
 
     # 5) 각 node는 누적된 결과값을 반환해주므로 -> 1개로 집계해야한다.
@@ -63,7 +63,7 @@ if __name__ == '__main__':
     ### 조합과 같이 뽑는 순서가 중요하지 않는 경우,
     ### (1) 주어진 순서대로 고정해놓는다.(순서가 중요치 않다. 순서대로 앞으로만 선택한다. 이해가 쉽게 오름차순 정렬하면 쉽다)
     ### (2) 매핑된 배열의 원소선택은, cnt + 1 vs cnt 로 가르되
-    ###     선택 안하더라도 pos는 무조건 증가하도록 node(다음 재귀)를 뻗는다.
+    ###     선택 안하더라도 pos는 무조건 증가하도록 start(다음 재귀)를 뻗는다.
     ###     -> 선택안하더라도(cnt->cnt) 한번 도달한 원소는 뒤돌아보지 않는다(position -> position + 1)
 
     ### cf) 순열에서는 원소 선택을 상태비트를 업데이트 & 확인하되

@@ -26,7 +26,7 @@ def bfs(srow, scol, drow, dcol):
     #     이 때, [최단거리를 판별하기 위해]
     #     -> 좌표뿐만 아니라 [root로부터의 거리 == depth이자 level]를 queue에 같이 튜플로 묵어저 집어넣는다.
     #    (현재x좌표, 현재y좌표, 간선거리)
-    queue.append((srow, scol, 0)) # bfs로 최단거리를 구할 경우, node(좌표)뿐만 아니라 [root로부터 거리]를
+    queue.append((srow, scol, 0)) # bfs로 최단거리를 구할 경우, start(좌표)뿐만 아니라 [root로부터 거리]를
     # myqueue.put()
 
     while queue: # while not myqueue.empty():

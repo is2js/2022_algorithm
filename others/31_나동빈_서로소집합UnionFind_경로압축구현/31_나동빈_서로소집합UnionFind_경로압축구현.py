@@ -6,7 +6,7 @@ input = sys.stdin.readline
 # => 재귀에서 거슬러 올라가면서, 재귀를 타고나와 종착역에서 거슬러 올라갈 때,
 #    종착역에서 반환한 root_node를 값으로 할당
 def find_parent(parent_table, node):
-    if parent_table[node] == node:  # root node
+    if parent_table[node] == node:  # root start
         return node
 
     parent = parent_table[node]
@@ -16,10 +16,10 @@ def find_parent(parent_table, node):
     # (1) 종착역의 값을 꼬리재귀로서 계속 연쇄반환해서 값만 반환하는게 아니라, 그 사이 트랜잭션
     # (2) 종착역의 값으로, parent_table을 업데이트 해주고, 반환
     parent_table[node] = find_parent(parent_table, parent)
-    # (3) 종착역에서 찾은 값으로, 나의(node)의 부모(parent_table[node])도 종착역으로 업데이트
+    # (3) 종착역에서 찾은 값으로, 나의(start)의 부모(parent_table[start])도 종착역으로 업데이트
     #     -> 그리고 그 종착역 값을 반환
     #      -> 다음 직전 재귀에서도, 반환되는 종착역 값 in 테이블 으로 자신의 값(직접 부모)을 종착역으로 업데이트
-    #   => 종착역 값을, 현재 자신(node)의 값으로 계속 업데이트시키고 반환시킬 수 있다.
+    #   => 종착역 값을, 현재 자신(start)의 값으로 계속 업데이트시키고 반환시킬 수 있다.
     return parent_table[node]
 
 def union_parent(parent_table, first_node, second_node):
@@ -28,8 +28,8 @@ def union_parent(parent_table, first_node, second_node):
     first_parent = find_parent(parent_table, first_node)
     second_parent = find_parent(parent_table, second_node)
 
-    # 둘 중에 root node가 더 작은 값을 가질 경우, [최종 root node]가 가리키는 방향을 바꾼다.
-    # -> **원래node의 부모 값을 바꾸는게 아니라, **각 root node 중 1개가 [자신이 아닌 다른 node]를 가르키게 한다!!
+    # 둘 중에 root node가 더 작은 값을 가질 경우, [최종 root start]가 가리키는 방향을 바꾼다.
+    # -> **원래node의 부모 값을 바꾸는게 아니라, **각 root start 중 1개가 [자신이 아닌 다른 start]를 가르키게 한다!!
     if first_parent < second_parent:
         parent_table[second_parent] = first_parent
     else:

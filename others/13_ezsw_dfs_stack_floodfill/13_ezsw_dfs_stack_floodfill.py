@@ -6,7 +6,7 @@ input = sys.stdin.readline
 def dfs(r, c, color):
     # [5] 재귀가 아닌 stack의 dfs는 visited배열을 지역변수로 쓴다.
     #    dfs로 행렬탐색은, 각 좌표를 하나하나의 node로보고 상태배열을 선언하기 때문에
-    #    2차원 마킹배열 -> 2차원 node -> 2차원 visited로 선언해야한다.
+    #    2차원 마킹배열 -> 2차원 start -> 2차원 visited로 선언해야한다.
     visited = [[False for _ in range(N)] for _ in range(N)]
 
     # [6] stack을 이용한 node탐색은, 첫 node는 일단 stack에 넣었다가
@@ -35,7 +35,7 @@ def dfs(r, c, color):
             # [13] stack을 통한 탐색에서는, next node의 방문여부 + @요구사항를 확인하고 append(push)해준다.
             if visited[next_row][next_col]:
                 continue
-            # [14] 탐색할 node append전, 요구사항 확인
+            # [14] 탐색할 start append전, 요구사항 확인
             if board[next_row][next_col] == 1:
                 continue
             stack.append((next_row, next_col))

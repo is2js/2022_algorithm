@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 
 def find_parent(parent_table, node):
-    # 재귀를 통해 table을 거슬러 올라가도록 업뎃하는데, 최종 root node는 index(node)와 value(부모node)가 같다
+    # 재귀를 통해 table을 거슬러 올라가도록 업뎃하는데, 최종 root node는 index(start)와 value(부모node)가 같다
     if parent_table[node] == node:
         return node
 
@@ -19,8 +19,8 @@ def union_parent(parent_table, first_node, second_node):
     first_parent = find_parent(parent_table, first_node)
     second_parent = find_parent(parent_table, second_node)
 
-    # 둘 중에 root node가 더 작은 값을 가질 경우, [최종 root node]가 가리키는 방향을 바꾼다.
-    # -> **원래node의 부모 값을 바꾸는게 아니라, **각 root node 중 1개가 [자신이 아닌 다른 node]를 가르키게 한다!!
+    # 둘 중에 root node가 더 작은 값을 가질 경우, [최종 root start]가 가리키는 방향을 바꾼다.
+    # -> **원래node의 부모 값을 바꾸는게 아니라, **각 root start 중 1개가 [자신이 아닌 다른 start]를 가르키게 한다!!
     if first_parent < second_parent:
         parent_table[second_parent] = first_parent
     else:
@@ -79,7 +79,7 @@ if __name__ == '__main__':
         # 두 node의 최종부모인 root node를 찾아서, 더 큰 부모가 작은 부모를 가리키게 한다.
         union_parent(parent_table, a, b)
 
-    # parent_table이 union결과 완성되었으니, 각 node가 속한 집합 == root node by find_parent를 통해 찾아 출력한다.
+    # parent_table이 union결과 완성되었으니, 각 node가 속한 집합 == root start by find_parent를 통해 찾아 출력한다.
     print('각 원소가 속한 집합: ')
     for i in range(1, v + 1):
         print(f"{i} -> {find_parent(parent_table, i)}")
@@ -103,7 +103,7 @@ if __name__ == '__main__':
     # 6 -> 5
 
     def find_parent(parent_table, node):
-        # 재귀를 통해 table을 거슬러 올라가도록 업뎃하는데, 최종 root node는 index(node)와 value(부모node)가 같다
+        # 재귀를 통해 table을 거슬러 올라가도록 업뎃하는데, 최종 root node는 index(start)와 value(부모node)가 같다
         if parent_table[node] == node:
             return node
 
@@ -118,8 +118,8 @@ if __name__ == '__main__':
         first_parent = find_parent(parent_table, first_node)
         second_parent = find_parent(parent_table, second_node)
 
-        # 둘 중에 root node가 더 작은 값을 가질 경우, [최종 root node]가 가리키는 방향을 바꾼다.
-        # -> **원래node의 부모 값을 바꾸는게 아니라, **각 root node 중 1개가 [자신이 아닌 다른 node]를 가르키게 한다!!
+        # 둘 중에 root node가 더 작은 값을 가질 경우, [최종 root start]가 가리키는 방향을 바꾼다.
+        # -> **원래node의 부모 값을 바꾸는게 아니라, **각 root start 중 1개가 [자신이 아닌 다른 start]를 가르키게 한다!!
         if first_parent < second_parent:
             parent_table[second_parent] = first_parent
         else:

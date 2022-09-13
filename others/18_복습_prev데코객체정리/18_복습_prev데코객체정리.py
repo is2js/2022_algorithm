@@ -38,7 +38,7 @@ class Sections:
         # 기존node의 연결이 끊어지지 않게, new Node 생성시, prev필드에 연결만 해주면 된다.
         # (2)
         # temp = self.section
-        # self.section = Section(data, prev=temp)
+        # self.section = Section(lst_2d, prev=temp)
         self.section = Section(data, prev=self.section)
         # -> add한 new Node가 필드로 유지되니 return할 필요는 없다.
         self.section_count += 1

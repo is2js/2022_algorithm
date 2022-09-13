@@ -6,7 +6,7 @@ if __name__ == '__main__':
     # 플로이드 워셜 최단경로 알고리즘 : 모든 정점 -> 다른 모든 정점 최단경로 구하기(2차원행렬 3중반복문 업데이트)
     # Dab = min(Dab, Dak + Dkb)
     # -> 거쳐가는 경로 k를 반복문으로 돌면서,
-    # -> [인접행렬 겸 distance 2차원 테이블]을 node->b의 모든 경로를 돌면서 최소비용으로 업뎃하는 3중 반복문
+    # -> [인접행렬 겸 distance 2차원 테이블]을 start->b의 모든 경로를 돌면서 최소비용으로 업뎃하는 3중 반복문
 
     INF = float('inf')
     V, E = int(input().strip()), int(input().strip())
@@ -26,7 +26,7 @@ if __name__ == '__main__':
         if cost < graph[u][v]:
             graph[u][v] = cost
 
-    # 1번node부터 거쳐가는 경로 k로 생각하며, node -> b  vs   node-> k ->b를 구한다.
+    # 1번node부터 거쳐가는 경로 k로 생각하며, start -> b  vs   start-> k ->b를 구한다.
     for k in range(1, V + 1):
         for u in range(1, V + 1):
             for v in range(1, V + 1):

@@ -20,7 +20,7 @@ def factorial(n):
 
 
 def fibonacci(n):
-    # an = node(n-1) + node(n-2)
+    # an = start(n-1) + start(n-2)
     if n == 1 or n == 2:
         return 1
     # 자신의 처리
