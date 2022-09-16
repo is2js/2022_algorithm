@@ -1,0 +1,8 @@
+중복값이 없습니다.
+중복값이 존재합니다.
+중복값이 존재합니다.
+defaultdict(<class 'int'>, {'a': 1, 'b': 1})
+Counter({'a': 2, 'b': 2, 'c': 1})
+defaultdict(<class 'int'>, {'a': 2})
+Counter({'a': 3, 'b': 1, 'c': 1})
+[('a', 3)]

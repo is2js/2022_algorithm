@@ -1,0 +1,8 @@
+PUSH MyQueue('[1]')
+PUSH MyQueue('[1, 2]')
+queue의 용량이 가득찼습니다
+PUSH MyQueue('[1, 2]')
+1
+POP MyQueue('[2]')
+1
+SIZE MyQueue('[2]')

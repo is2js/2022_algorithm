@@ -1,0 +1,12 @@
+JS
+TS
+0
+0
+python
+python
+JS
+False
+0
+-1
+True입니다.
+거짓입니다.

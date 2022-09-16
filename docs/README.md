@@ -238,3 +238,9 @@ def combination(prev_cnt, prev_position, prev_result):
 ### 정렬알고리즘 비교표
 - 출저: 동빈나 유튜브
 ![image-20220902221321589](https://raw.githubusercontent.com/is3js/screenshots/main/image-20220902221321589.png)
+
+
+### 프로그래머스 문제 선정 참고 블로그 
+1. 벨로그: https://velog.io/@dhelee/
+2. 채린: https://chaelinyeo.github.io/
+3. 구르미: https://gurumee92.tistory.com/164

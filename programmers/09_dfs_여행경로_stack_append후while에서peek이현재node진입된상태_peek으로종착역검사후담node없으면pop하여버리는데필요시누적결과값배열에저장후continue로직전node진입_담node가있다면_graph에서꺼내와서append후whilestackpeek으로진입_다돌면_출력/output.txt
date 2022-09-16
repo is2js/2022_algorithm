@@ -1,0 +1,1 @@
+['ICN', 'ATL', 'ICN', 'SFO', 'ATL', 'SFO']

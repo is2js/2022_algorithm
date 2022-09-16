@@ -1,0 +1,4 @@
+200
+toy 70
+snack 200
+toy snack toy
