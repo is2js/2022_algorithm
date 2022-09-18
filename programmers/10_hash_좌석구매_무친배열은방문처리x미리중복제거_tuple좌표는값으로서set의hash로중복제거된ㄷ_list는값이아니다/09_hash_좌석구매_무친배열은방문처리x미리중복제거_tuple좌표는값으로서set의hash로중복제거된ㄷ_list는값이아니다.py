@@ -10,7 +10,7 @@ if __name__ == '__main__':
     sections = len(seat) // pair
     seat = [[seat[section * 2 + 0], seat[section * 2 + 1]] for section in range(sections)]
     # print(seat)
-    # board = [[0] * 1_000_000 for _ in range(1_000_000)]
+    # board = [[0] * 1_000_000 for row in range(1_000_000)]
     # count = 0
     # for row, col in seat:
     #     if board[row][col]: continue

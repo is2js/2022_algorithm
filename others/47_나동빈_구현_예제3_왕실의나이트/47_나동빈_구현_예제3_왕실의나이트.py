@@ -25,7 +25,7 @@ if __name__ == '__main__':
     #     'f': 6,
     #     'g': 7,
     # }
-    # board = [[0] * (8 + 1) for _ in range(8 + 1)]
+    # board = [[0] * (8 + 1) for row in range(8 + 1)]
     #
     # location = list(input().strip())
     # x, y = int(location[1]), columns[location[0]]

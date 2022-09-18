@@ -38,7 +38,7 @@ if __name__ == '__main__':
     #     a[i], b[len(a) - (i + 1)] = b[len(a) - (i + 1)], a[i]
     #     swap_count += 1
     #
-    # print(sum(a))
+    # print(sum_(a))
 
     ## 풀이
     # -> 각 배열이 최대 10^5까지 들어오므로 N제곱의 삽입정렬/선택정렬은 불가하다

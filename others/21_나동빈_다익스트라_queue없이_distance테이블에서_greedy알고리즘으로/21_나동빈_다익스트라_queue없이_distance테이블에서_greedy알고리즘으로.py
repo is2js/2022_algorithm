@@ -33,7 +33,7 @@ def dijkstra(start):
     #    distance내에서 방문안된, 제일 짧은 것 node를 pop하더라도
     #    제일 짧은 것이 자기자신 -> INF(or 업데이트 된 값)-> 최소값 업뎃안되고, 초기화된 지역변수 값만 나와서
     #    -> 오류가 난다.
-    # for _ in range(n):
+    # for row in range(n):
     for _ in range(N):
         # distnace내에 총비용이 가장짧은 것을 꺼낸다 -> 최단경로로부터 만들어진 최단경로 후보
         curr_min_node = poll_smallest_node_in_distance()
@@ -79,7 +79,7 @@ if __name__ == '__main__':
     distance = [INF for _ in range(N+1)] # 최대node명이 N이라면, 0부터 n+1까지..(인접행렬은 0부터 시작)
 
 
-    # graph = [[0 for _ in range(n+1)] for _ in range(n+1)]
+    # graph = [[0 for row in range(n+1)] for row in range(n+1)]
     # graph를 행렬로 그리면, 인접node들의 목록을 받아볼 수 없기 때문애
     # -> dict나, 2차원 빈 행렬에 인접node + 가중치를 tuple로 append하자
     # -> dfs, bfs와 다르게, 모든node를 탐색하지 않고, 인접node만 탐색하도록 함.

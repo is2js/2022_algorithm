@@ -14,7 +14,7 @@ def dijkstra(start_node):
 
 
     # 다익스트라 특징: 반복 횟수 == 최소비용으로 뽑힌 횟수 == 마지막node를 제외한 수만큼만 추출
-    # for _ in range(V - 1): -> 자료구조 도입으로 인한, 반복횟수 직접 지정 안해도 됨.
+    # for row in range(V - 1): -> 자료구조 도입으로 인한, 반복횟수 직접 지정 안해도 됨.
     while heap:
         curr_cost, curr_node = pq.heappop(heap)
 

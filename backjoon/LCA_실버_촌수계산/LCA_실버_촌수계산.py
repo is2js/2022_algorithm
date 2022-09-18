@@ -28,8 +28,8 @@ if __name__ == '__main__':
     #
     # M = int(input().strip())
     #
-    # graph = [[] for _ in range(N + 1)]
-    # for _ in range(M):
+    # graph = [[] for row in range(N + 1)]
+    # for row in range(M):
     #     parent, child = map(int, input().split())
     #     graph[parent].append(child)
     #     # graph[child].append(parent)

@@ -54,7 +54,7 @@ def process():
 if __name__ == '__main__':
     n, m = map(int, input().split())
     # parent_table = [0] * (n + 1)
-    # for index, _ in enumerate(parent_table):
+    # for index, row in enumerate(parent_table):
     #     parent_table[index] = index
     ### index값으로 초기화는 한방에 할 수 있다.
     parent_table = [i for i in range(n+1)]

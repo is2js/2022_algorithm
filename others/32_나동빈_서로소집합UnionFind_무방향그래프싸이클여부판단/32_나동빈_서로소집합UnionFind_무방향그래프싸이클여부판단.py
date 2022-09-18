@@ -60,7 +60,7 @@ if __name__ == '__main__':
         parent_table[i] = i
 
     ## 문제에 주어지는 모든 간선들에 대해 union 연산을 수행
-    # for _ in range(e):
+    # for row in range(e):
     #     start, b = map(int, input().split())
     #    # 두 node의 최종부모인 root node를 찾아서, 더 큰 부모가 작은 부모를 가리키게 한다.
         # union_parent(parent_table, start, b)

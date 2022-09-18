@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
 
     weight_of_name = dict(zip(*zip(*specs)))
-    ## => 누적하기 전에, 300을 넘어서는 순간,  count + 1하고, sum 0으로 초기화한 뒤, 더해야한다.
+    ## => 누적하기 전에, 300을 넘어서는 순간,  count + 1하고, sum_ 0으로 초기화한 뒤, 더해야한다.
     weight_sum = 0
     count = 1
     for name in names:

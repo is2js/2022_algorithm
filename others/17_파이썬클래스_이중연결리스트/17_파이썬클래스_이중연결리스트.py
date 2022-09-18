@@ -81,7 +81,7 @@ class Sections:
         # data가 없는 tail이라는 끝 특이점 객체가 존재하므로
         # -> while문의 기준을 객체로두면, 시작특이점 객체
         # -> 그 전까지 가려면, self.node_count를 확인하면 될 것 같다.
-        # for _ in range(self.node_count):
+        # for row in range(self.node_count):
         #     print(f"{curr.lst_2d}", end=" ")
         #     curr = curr.next
         # => data가 없는 끝 특이점(tail)이 존재하면, 그것만 .next가 null이기 때문에
@@ -225,7 +225,7 @@ class Sections:
         curr = self.head
         # [18] insert기본은 for문으로 횟수반복하여 i-1까지 와서 이전node로 처리한다.
         # -> 0부터 증가하니 index - 1까지 오면 된다.
-        # for _ in range(index_ - 1):
+        # for row in range(index_ - 1):
         for _ in range(index_):
             curr = curr.next
         # (1) 삭제될놈처럼, 현재자리에 있는 놈의 정보를 챙겨놓는다.

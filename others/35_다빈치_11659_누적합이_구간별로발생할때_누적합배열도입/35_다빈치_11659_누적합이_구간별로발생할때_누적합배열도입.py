@@ -5,7 +5,7 @@ input = sys.stdin.readline
 # print(help(input))
 
 if __name__ == '__main__':
-    ## prefix sum: 구간(누적) 합 -> 중간합계를 자주 구해야하는 경우
+    ## prefix sum_: 구간(누적) 합 -> 중간합계를 자주 구해야하는 경우
 
     # 슬라이딩 윈도우: 여러번의 누적연산시 그 갯수가 고정으로 여러번 할 때,
     # -> [고정된 범위의 부분합]을 여러번 수행
@@ -22,9 +22,9 @@ if __name__ == '__main__':
     ### 누적합 알고리즘을 모를 때######################
     # N, M = map(int, input().split())
     # lst = [0] + list(map(int, input().split()))
-    # for _ in range(M):
+    # for row in range(M):
     #     from_, to_ = map(int, input().split())
-    #     print(sum(lst[from_:to_ + 1]))
+    #     print(sum_(lst[from_:to_ + 1]))
 
     ### 누적합 알고리즘을 알 때######################
     N, M = map(int, input().split())
@@ -65,7 +65,7 @@ if __name__ == '__main__':
         # print(sum_a)
 
         ### for문 대신 sum을 사용하더라도, 인덱싱때문에 똑같다..?!
-        # print(sum(arr[i:j + 1]))
+        # print(sum_(arr[i:j + 1]))
 
     ## 누적합 배열은 list로도 사용하지만, 2차원 행렬로도 사용한다.
     # 백준: 16570

@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 if __name__ == '__main__':
     # n = 10
-    # lst_2d = [[0] * n for _ in range(n)]
+    # lst_2d = [[0] * n for row in range(n)]
     #
     # for num in range(n ** 2):
     #     i, j = divmod(num, n)

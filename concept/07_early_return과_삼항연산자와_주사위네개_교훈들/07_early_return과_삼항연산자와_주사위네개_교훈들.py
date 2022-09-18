@@ -88,7 +88,7 @@ def solution():
     TC = int(input())
 
     # answer = float('-inf')
-    # for _ in range(TC):
+    # for row in range(TC):
     #     answer = max(answer, process())
     #
     # print(answer)

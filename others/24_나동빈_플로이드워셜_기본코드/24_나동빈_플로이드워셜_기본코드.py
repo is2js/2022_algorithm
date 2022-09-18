@@ -27,7 +27,7 @@ if __name__ == '__main__':
     n = int(input().strip())  # start 갯수
     m = int(input().strip())  # edge 갯수
     # graph 인접행렬을 INF로 초기화 -> 자기자신으로 가는 것은 weight(cost) 0 -> 간선정보(weight, cost)를 입력함
-    # graph = [[INF for _ in range(n + 1)] for _ in range(n + 1)]
+    # graph = [[INF for row in range(n + 1)] for row in range(n + 1)]
     graph = [[INF] * (n+1) for _ in range(n + 1)] # 1차 배열은 [값] * x의 얕은복사로 생성간으
     for a in range(1, n + 1):  # 0번째 행, 0번째 열은 node없음이니까 무시하고, 1번부터 논다.
         for b in range(1, n + 1):

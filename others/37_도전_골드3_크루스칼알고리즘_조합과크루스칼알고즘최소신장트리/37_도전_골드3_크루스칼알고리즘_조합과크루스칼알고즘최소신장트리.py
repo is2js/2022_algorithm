@@ -60,7 +60,7 @@ if __name__ == '__main__':
     solve(0, 0, ())
     # print(combination_set)
     # except_edges = set()
-    # for _ in range(M):
+    # for row in range(M):
     #     edge = tuple(map(int, input().split()))
     #     edge.sort()
     #     except_edges.add((x, y))

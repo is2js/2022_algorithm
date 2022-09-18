@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     # 문제가 0부터 시작하지 않는다면, [0] + list()처럼, 빈행과 빈열을 추가해서 행렬을 만들어준다.
     # -> 직접 입력받은 Row, col번호 -1 해서 추출해도 되긴 한다.
-    # picture = [list(map(int, input().split())) for _ in range(R)]
+    # picture = [list(map(int, input().split())) for row in range(R)]
     picture = [[0] * (C + 1)] + \
               [[0] + list(map(int, input().split())) for _ in range(R)]
 

@@ -26,7 +26,7 @@ def solution():
     # n = int(input().strip())
 
     # # 03 2차원 배열은 횟수만큼 list comp 상에서 list(map())
-    # paper = [list(map(int, input().split())) for _ in range(n)]
+    # paper = [list(map(int, input().split())) for row in range(n)]
     # print(paper)
 
     # 04 2차원 && 구분자없음 -> map(func, *iterable)의 iterable자리에 문자열을 split없이 바로 넣으면 된다.
@@ -35,7 +35,7 @@ def solution():
     # 111
     # 110
     # n, M = map(int, input().split())
-    # MIRO = [list(map(int, input().strip())) for _ in range(n)]
+    # MIRO = [list(map(int, input().strip())) for row in range(n)]
     # print(MIRO)
 
     # 05 차원별 변수들을 이용해서, [특정 값으로 초기화된 배열 선언]하기

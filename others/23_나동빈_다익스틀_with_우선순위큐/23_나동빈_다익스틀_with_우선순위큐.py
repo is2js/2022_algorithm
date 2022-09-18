@@ -85,7 +85,7 @@ if __name__ == '__main__':
     # graph: 간선정보로 만드는 start 연결 정보
     # node의 갯수 N만큼  빈 list를 미리 만들어놓고, 간선정보가 입력되게 한다.
     # -> 이렇게 할 경우, 인접행렬이 아니므로 모든 node탐색을 할 필요가 없어진다.
-    # -> row_index = start 번호랑 매핑되는 것. -> 0~ N까지 돌리기 위해 range(n+1)
+    # -> row = start 번호랑 매핑되는 것. -> 0~ N까지 돌리기 위해 range(n+1)
     graph = [[] for _ in range(N+1)]
 
     # 다익스트라 필수 distance(최소비용) 테이블 (index = node매핑)

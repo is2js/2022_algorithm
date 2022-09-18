@@ -34,6 +34,6 @@ if __name__ == '__main__':
 
     ## 집계는 value로만 한다.
     # -> lambda는 tuple을 언패킹 못한다.
-    # print(sum(map(lambda x: x[1]**2, works)))
+    # print(sum_(map(lambda x: x[1]**2, works)))
     # -> for는 튜플을 언패킹할 수 있다
     print(sum(value ** 2 for cost, value in works))

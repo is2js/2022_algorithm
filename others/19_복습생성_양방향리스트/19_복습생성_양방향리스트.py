@@ -118,7 +118,7 @@ class Sections:
         #     curr = self.tail.prev
         if index < (self.section_count // 2):
             curr = self.head.next
-            # 단순 횟수 반복은 while이 아닌 for _ 문을 이용한다.
+            # 단순 횟수 반복은 while이 아닌 for row 문을 이용한다.
             # index 0 -> 0번이동(반복문x) / 1->1번이동이므로, range(n)을 그대로 이용하면 된다.
             for _ in range(index):
                 curr = curr.next

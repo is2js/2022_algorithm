@@ -8,7 +8,7 @@ if __name__ == '__main__':
     # # ex> 2, 3 단위화폐 -> 15원 -> 3x5
     # N, M = map(int, input().split())
     # money_unit = []
-    # for _ in range(N):
+    # for row in range(N):
     #     money_unit.append(int(input().strip()))
     #
     # money_unit.sort()

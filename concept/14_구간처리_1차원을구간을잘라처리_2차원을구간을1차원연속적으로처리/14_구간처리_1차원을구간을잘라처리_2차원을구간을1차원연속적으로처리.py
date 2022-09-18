@@ -42,7 +42,7 @@ if __name__ == '__main__':
     matrix_3_by_3 = [[i for i in range(3)] for _ in range(3)]
     # print(matrix_3_by_3)
     # (1) 2차원 행렬을 1차원으로 접근하기 위해서는  x, y 이중반복문 속에서
-    # -> [row_index * col갯수(구간별갯수) + col_index] 로 접근하면 된다.
+    # -> [row * col갯수(구간별갯수) + col_index] 로 접근하면 된다.
     for row in range(len(matrix_3_by_3)):
         for col in range(len(matrix_3_by_3[0])):
             matrix_3_by_3[row][col] = row * len(matrix_3_by_3[0]) + col
