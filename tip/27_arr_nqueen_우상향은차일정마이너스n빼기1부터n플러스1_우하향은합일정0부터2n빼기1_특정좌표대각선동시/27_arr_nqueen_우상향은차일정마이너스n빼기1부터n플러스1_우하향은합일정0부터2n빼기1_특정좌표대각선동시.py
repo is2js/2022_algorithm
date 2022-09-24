@@ -3,8 +3,8 @@ import sys
 input = sys.stdin.readline
 
 if __name__ == '__main__':
-    ## 1. [1개의 배열에서 재방문금지로 인한 1case 경로]라면, global visisted 2차원배열을 써서 공유하면 되지만,
-    ## 여러 정답case && 들고다닐 수 없는 2차원 visisted -> 다른방식이 필요하다
+    ## 1. [1개의 배열에서 재방문금지로 인한 1case 경로]라면, global visited 2차원배열을 써서 공유하면 되지만,
+    ## 여러 정답case && 들고다닐 수 없는 2차원 visited -> 다른방식이 필요하다
     board = [[col + row * 4 for col in range(1, 4 + 1)] for row in range(4)]
     # print(*board, sep="\n")
     # [1, 2, 3, 4]

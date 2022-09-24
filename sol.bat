@@ -68,10 +68,21 @@ if "%1" == "bj" (
        GOTO:EOF
    )
    Set CURRENT_FOLDER=tip
-) else if "%1" == "reset" (
+) else if "%1" == "kakao" (
+   ::concept폴더가 없으면 일단 생성한다.
+   if not exist ".\kakao\" md ".\kakao"
+   ::concept/ 첫번째인수명/ 으로 해당 문제의 폴더를 생성한다.
+   if not exist ".\kakao\%2" (
+       md ".\kakao\%2"
+   ) else (
+       echo "already solved problem"
+       GOTO:EOF
+   )
+   Set CURRENT_FOLDER=kakao
+)else if "%1" == "reset" (
     GOTO:RESET
 )  else (
-    echo "Must First arguments contains bj, pg, lc, others, cpt"
+    echo "Must First arguments contains bj, pg, lc, others, cpt, tip, kakao"
     GOTO:EOF
 )
 

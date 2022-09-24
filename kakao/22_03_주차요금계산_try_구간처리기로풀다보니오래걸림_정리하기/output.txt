@@ -1,0 +1,12 @@
+defaultdict(<class 'list'>, {'1234': ['00:00']})
+1234============
+현재구간 0< <= 1
+my_section: 0 ~ 1
+1.0 * fee 461 -> 461
+id, minutes, my_section, curr_fee : 1234: 1439, 1, 461
+현재구간 1< <= 1440
+my_section: 1 ~ 1439
+1438.0 * fee 10 -> 14380
+id, minutes, my_section, curr_fee : 1234: 1439, 1438, 14380
+14841
+[14841]

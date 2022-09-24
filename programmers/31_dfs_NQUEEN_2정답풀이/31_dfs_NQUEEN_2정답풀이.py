@@ -75,7 +75,7 @@ def dfs(n, row, row_visited):
 
         ## (5) 체크를 위한 0~row-1까지의 flag에 안걸려서 다 통과했다면
         ##     다음 row로 넘어가도 된다. 한번이라도 if break 플래그에 걸리면, else:는 실행안된다. => 다음재귀가 없다
-        ##     visisted[row] = col 선언한것도 의미가 없어진다??
+        ##     visited[row] = col 선언한것도 의미가 없어진다??
         ## => 다음재귀로 넘어가기 전에 직전row들과의 검사를 끝내고 flag안걸리면 else에서 넘어간다
         ##    이 때, 맨 바깥에서 도는 col도 계속 바뀌므로, 해당 현재 row, col에 놓아둔queen은 걸리면 다음재귀로 못넘어간다??
         else:

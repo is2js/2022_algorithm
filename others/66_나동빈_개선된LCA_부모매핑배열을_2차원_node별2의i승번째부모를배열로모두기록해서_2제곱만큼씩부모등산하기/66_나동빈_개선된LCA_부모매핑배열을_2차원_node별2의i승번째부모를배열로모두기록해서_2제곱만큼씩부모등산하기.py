@@ -41,7 +41,7 @@ if __name__ == '__main__':
         graph[u].append(v)
         graph[v].append(u)
 
-    # dfs재귀(모든node 1회 탐색)를 위한 visisted 배열 / node별 depth기록 배열
+    # dfs재귀(모든node 1회 탐색)를 위한 visited 배열 / node별 depth기록 배열
     visited = [False] * (N + 1)
     depth_table = [False] * (N + 1)
     # (1) dfs자식탐색시, node별 부모(value) 기록 -> node별 2^i번째 부모들(배열)을 기록하기 위한 2차원 배열

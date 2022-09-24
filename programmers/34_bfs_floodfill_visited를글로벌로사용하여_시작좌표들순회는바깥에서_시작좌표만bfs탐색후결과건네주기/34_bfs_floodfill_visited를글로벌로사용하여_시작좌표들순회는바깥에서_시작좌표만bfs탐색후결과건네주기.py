@@ -6,7 +6,7 @@ input = sys.stdin.readline
 
 def bfs(visited, DELTA, images,
         row, col):
-    # visisted 선언 생략, queue를 만들어 inqueue한다
+    # visited 선언 생략, queue를 만들어 inqueue한다
     visited[row][col] = True  # 인큐 전 방문표시
     q = deque([])
     q.append((row, col))
@@ -54,7 +54,7 @@ if __name__ == '__main__':
 
     result = []
 
-    ## (2) 시작좌표들을 배회 단, bfs내부에서 visisted 방문한 것을 피한다.
+    ## (2) 시작좌표들을 배회 단, bfs내부에서 visited 방문한 것을 피한다.
     # for row in range(len(images)):
     #     for col in range(len(images[row])):
     for num in range(n * m):

@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 
 def dfs(images, visited, row, col):
-    # 좌표탐색은 visisted + stack자료구조
+    # 좌표탐색은 visited + stack자료구조
 
     ## bfs와 다르게, inqueue전에는 방문체크만 하고, 꺼냈을 때 방문표시한다.
     # => 원래는 생략이며, 여러 시작좌표는 방문체킹은 이미 진입전에 했다?!

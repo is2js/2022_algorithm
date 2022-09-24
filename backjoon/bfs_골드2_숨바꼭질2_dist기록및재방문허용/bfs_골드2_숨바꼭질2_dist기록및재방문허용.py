@@ -17,7 +17,7 @@ if __name__ == '__main__':
         # dist = [-1] * (MAX + 1)
 
         ## 재방문 금지를 위해 if visitied:로 검사하고
-        ## 최단거리 재방문 허용하려면, if visisted and dist[next] != dist[curr] + 1로 최단거리 아닌 조건까지 추가하여 검사한다.
+        ## 최단거리 재방문 허용하려면, if visited and dist[next] != dist[curr] + 1로 최단거리 아닌 조건까지 추가하여 검사한다.
         ## 방문횟수를 카운팅하려면, visited += 1로 체킹한다
         visited = [False] * (MAX + 1)
 

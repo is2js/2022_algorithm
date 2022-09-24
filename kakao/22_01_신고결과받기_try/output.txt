@@ -1,0 +1,2 @@
+Counter({'frodo': 2, 'neo': 2, 'muzi': 1})
+[2, 1, 1, 0]
