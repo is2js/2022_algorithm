@@ -243,4 +243,11 @@ def combination(prev_cnt, prev_position, prev_result):
 ### 프로그래머스 문제 선정 참고 블로그 
 1. 벨로그: https://velog.io/@dhelee/
 2. 채린: https://chaelinyeo.github.io/
-3. 구르미: https://gurumee92.tistory.com/164
+
+3. rapsby: https://velog.io/@rapsby/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EA%B8%B0%EB%91%A5%EA%B3%BC-%EB%B3%B4-%EC%84%A4%EC%B9%98-python
+
+4. 구르미: https://gurumee92.tistory.com/164
+5. 검은tistory: https://daekyojeong.github.io/tags/algorithm/
+
+6. 낙타: https://camel-it.tistory.com/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EC%8A%A4%ED%84%B0%EB%94%94
+7. tistory2:https://abluesnake.tistory.com/70?category=1099258

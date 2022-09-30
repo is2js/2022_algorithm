@@ -12,8 +12,8 @@ def print_subsets(arr, n):
     # -> i는 0000 0001 ~ 1111까지 증가한다.
     # -> i를 이진수로 생각해야한다.
     # for i in range(1 << n):
-    #     print('{', end=' ')
-    #     print(i, end=' ')
+    #     print('{', dst=' ')
+    #     print(i, dst=' ')
     #     print('}')
     # { 0 } -> 출력은 10진수로 나오지만 0000
     # { 1 } -> 0001 로 i를 생각해야한다.
@@ -48,7 +48,7 @@ def print_subsets(arr, n):
                 # -> 나머지도 돌면서 " "로 연결된다.
                 print(arr[j], end=" ")
             # else:
-            #     print("X", end=" ")
+            #     print("X", dst=" ")
         print('}')
 
 

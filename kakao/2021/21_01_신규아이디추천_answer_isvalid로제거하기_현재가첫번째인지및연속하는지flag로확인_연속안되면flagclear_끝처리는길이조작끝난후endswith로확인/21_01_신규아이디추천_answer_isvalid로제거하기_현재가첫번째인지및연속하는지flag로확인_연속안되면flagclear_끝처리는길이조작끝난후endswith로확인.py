@@ -16,6 +16,7 @@ def is_valid(ch):
 
 
 if __name__ == '__main__':
+    ## 신규아이디 추천: https://school.programmers.co.kr/learn/courses/30/lessons/72410
     new_id = input().strip()
 
     answer = ''
@@ -34,7 +35,8 @@ if __name__ == '__main__':
         ch = ch.lower()
         #### (3) 마침표 -> 현재가 마침표인데, 그게 처음인지 어떻게 확인할까?
         #### 정규표현식 new_id = re.sub('[.]+', '.', new_id)
-        ####  (3-1) [원본 필터링 재배열 누적 중 처음에 올 것인지 아닌지]는 누적 결과값을 이용 -> 아직 answer에 append된게 없다면, 현재.는 첫번째 마침표후보다 -> skip
+        ####  (3-1) [원본 필터링 재배열 누적 중 처음에 올 것인지 아닌지]는 누적 결과값을 이용
+        # -> 아직 answer에 append된게 없다면, 현재.는 첫번째 마침표후보다 -> skip
         if ch == '.':
             #### 3-2-3 flag체크하며 처리된 1번째 마침표이후, 또 마침표가 나왔을 때 skip by flag
             #### => 마침요이면서, 직전에 마침표가 들어온 경험이 있다면 is_last_dot = True로 불들어온 상태면, 스킵

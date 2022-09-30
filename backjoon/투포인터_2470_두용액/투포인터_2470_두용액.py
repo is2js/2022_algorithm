@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
     N = int(input().strip())
     numbers = list(map(int, input().split()))
-    # 1) 투포인터는 작으면 start+=1 크면 end-=1을 조정하기 위해 배열을 정렬해놓고 돌린다.
+    # 1) 투포인터는 작으면 start+=1 크면 dst-=1을 조정하기 위해 배열을 정렬해놓고 돌린다.
     numbers.sort()
 
     # 2) 투 포인터는 start, end를 가변변수로 직접 지정하고 -> while str < end로 돌리면서 둘중에 하나를 업데이트한다.

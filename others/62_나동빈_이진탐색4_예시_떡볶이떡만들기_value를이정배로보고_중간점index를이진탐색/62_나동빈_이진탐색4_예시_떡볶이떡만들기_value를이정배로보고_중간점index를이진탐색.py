@@ -28,7 +28,7 @@ if __name__ == '__main__':
     # => 이 중간점을 [자를 길이]라고 먼저 준다면, => 나머지 떡들의 길이까지 계산해보면 [10, 6, 1, 8] => 25로서 M6보다 크므로 [중간점9]를 저장한다.
 
     # (2) M==6보다 크므로, 높이를 더 높여 잘린길이의 합을 줄이도록 업데이트 해본다.
-    # => h를 [이진탐색 중간점]으로서 탐색한다면, [중간점h를 이동시키는 방법은 srt or end를 mid주위로 올겨 mid를 다르게 업데이트]해야한다.
+    # => h를 [이진탐색 중간점]으로서 탐색한다면, [중간점h를 이동시키는 방법은 src or end를 mid주위로 올겨 mid를 다르게 업데이트]해야한다.
     # => h를 높이려면, 시작점을 기존 h +1로 옮겨야한다.
     # 시작점 10: 끝점 19 -> 중간점 = 14 -> 잘린 떡 [4, 1, None, 3] => 6보다 크다. => 중간점 h14 저장
 
@@ -45,22 +45,22 @@ if __name__ == '__main__':
     n, m = list(map(int, input().split()))
     lst = list(map(int, input().split()))
 
-    # (1) 반복문 이진탐색은 srt, end를 while안에서 업뎃하기 때문에, 미리 초기화
+    # (1) 반복문 이진탐색은 src, end를 while안에서 업뎃하기 때문에, 미리 초기화
     srt_index = 0
     # (2) value를 배열로 보고 이진탐색할 땐, 0부터, value까지를 index로 둔다(n-1아님)
     # -> 특히, 여러개의 value에 대해 적용한다면, 제일 긴 value를 end_index로 줘야한다.
     end_index = max(lst)
 
-    # (3) 이진탐색은 while문 + stack변수인 srt/end_index로 하고, 내부에서 mid를 만들어 업데이트한다.
+    # (3) 이진탐색은 while문 + stack변수인 src/end_index로 하고, 내부에서 mid를 만들어 업데이트한다.
     # -> 종착역이 있으면 내부에서 if로 걸면되고, 없으면 다 돈다.
     result = 0 # python은 누적계산이 아니라면, 가변변수 없이 반복문 내에서 선언한 변수도 바깥에서 쓸 수 있다.
     while srt_index <= end_index:
         mid_index = (srt_index + end_index) // 2 # 중간점이자 자르는 높이
-        # (4) 이진탐색시, srt/end로 정해진 자를높이h(mid)를 통해, 잘린 떡의 길이를 합하여 비교한다.
+        # (4) 이진탐색시, src/end로 정해진 자를높이h(mid)를 통해, 잘린 떡의 길이를 합하여 비교한다.
         # -> 자르는 높이(mid_index)보다 긴 것에 대해서만 잘라서 누적하니, 필터링으로서 list comp를 활용한다.
         cut_sum = sum(x-mid_index for x in lst if x >= mid_index)
 
-        # (5) 잘린 떡의 총합이 m보다 작으면, 자르는 높이mid를 낮추기 위해 end -> mid - 1 로 안쪽으로 당겨서 mid를 낮춘다.
+        # (5) 잘린 떡의 총합이 m보다 작으면, 자르는 높이mid를 낮추기 위해 dst -> mid - 1 로 안쪽으로 당겨서 mid를 낮춘다.
         # -> 반대는 srt를 안쪽으로 당겨서 mid를 높인다.
         if cut_sum < m:
             end_index = mid_index - 1

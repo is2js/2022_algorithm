@@ -52,7 +52,7 @@ if __name__ == '__main__':
     visited = [0] * 11
 
     l = dfs(apeech_sum, n, 0, 0, list(visited))
-    # print(*l, sep='\n')
+    # print(*stack, sep='\n')
 
     ## 이제 sum이 가장 큰 놈(들)을 골라야한다.
     # max_i_arr = None

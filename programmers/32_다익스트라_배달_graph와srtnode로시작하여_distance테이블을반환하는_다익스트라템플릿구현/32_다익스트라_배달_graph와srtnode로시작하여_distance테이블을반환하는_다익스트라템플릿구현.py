@@ -53,7 +53,7 @@ if __name__ == '__main__':
     ## => 비용테이블을 inf로 초기화한다
 
 
-    ## (2) 다익스트라는 (graph, 시작정점)으로 시작하며, 내부에서 srt -> 각 node별 최단비용 distance테이블을 채워 반환한다.
+    ## (2) 다익스트라는 (graph, 시작정점)으로 시작하며, 내부에서 src -> 각 node별 최단비용 distance테이블을 채워 반환한다.
     distance = dijkstra(graph, 1)
 
 

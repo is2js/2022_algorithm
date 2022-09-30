@@ -4,8 +4,8 @@ input = sys.stdin.readline
 
 
 def binary_search(lst, target, srt_index, end_index):
-    # (3) ### 정렬은 len==1일때가 바로반한이지만, index로 탐색은, [못 찾을 때 == not (srt <= end)]인
-    # -> srt > end return None의 [찾을 수 없음]도 따로 처리해줘야한다.
+    # (3) ### 정렬은 len==1일때가 바로반한이지만, index로 탐색은, [못 찾을 때 == not (src <= dst)]인
+    # -> src > dst return None의 [찾을 수 없음]도 따로 처리해줘야한다.
     # -> [이진탐색 재귀의 2번째 종착역]
     if srt_index > end_index:
         return None
@@ -33,14 +33,14 @@ if __name__ == '__main__':
     # -> (1) 중간점 vs 찾는 값 비교 -> (2)  중간점기준으로 한쪽만 탐색하도록 시작점or끝점을 이동
     # => 단계마다 범위를 2로 나누어 O(lgN)
     # => 배열은 그대로두고, [경우의수에 따라 index만 바꿔서 처리하는 start]를 뻗어나가면서 target index 찾아 반환하는 [재귀]로 해결한다.
-    # => start/end 파라미터로 -> 자신의 처리에서 mid를 만들어 처리하는 [재귀]로 해결할 수 있다.
+    # => start/dst 파라미터로 -> 자신의 처리에서 mid를 만들어 처리하는 [재귀]로 해결할 수 있다.
 
-    ## 1. 재귀를 통한 start, end 파라미터 변경
+    ## 1. 재귀를 통한 start, dst 파라미터 변경
     n, target = map(int, input().split())
     # (1) 이미 정렬된 배열에 1개의 target value를 탐색하는 문제여야한다.
     lst = list(map(int, input().split()))
 
-    # (2) 이진탐색은 이정배를 그대로 두고, srt/end 인덱스를 바꿔가며
+    # (2) 이진탐색은 이정배를 그대로 두고, src/dst 인덱스를 바꿔가며
     # -> mid중간점을 통해 절반씩 줄여서, 1개의 target index를 반환하는 꼬리재귀형식이다.
     # binary_search(lst, target, srt_index, end_index)
     print(binary_search(lst, target, 0, n - 1))

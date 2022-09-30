@@ -12,7 +12,7 @@ def binary_search(lst, target, srt_index, end_index):
         # (3) 이진탐색은 업뎃srt,end_index로  mid중간점을 만들어서 처리한다.
         mid_index = (srt_index + end_index) // 2  # 가운데 or 중간왼쪽
         # (4) 2번째 종착역으로서, 중간에 조건을 만족하여 끝나는 종착역은 stack변수 소진 전 반복문 내에서if로 찾아서 끝낸다.
-        # stack변수의 소진(srt> end) 해서 끝나는 것이 아니라, 특별한  종착역이 있다면,
+        # stack변수의 소진(src> dst) 해서 끝나는 것이 아니라, 특별한  종착역이 있다면,
         # -> while문 속에서 업뎃되는 변수를 통해 if return으로 처리한다.
         if lst[mid_index] == target:
             return mid_index
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     n, target = map(int, input().split())
     lst = list(map(int, input().split()))
 
-    # (1) 재귀도 가능하지만, while으로도 srt, end_index를 업데이트하며 mid로 탐색할 수 있다.
+    # (1) 재귀도 가능하지만, while으로도 src, end_index를 업데이트하며 mid로 탐색할 수 있다.
     # binary_search(lst, target, srt_index, end_index)
     print(binary_search(lst, target, 0, n - 1))
 
@@ -46,7 +46,7 @@ if __name__ == '__main__':
             # (3) 이진탐색은 업뎃srt,end_index로  mid중간점을 만들어서 처리한다.
             mid_index = (srt_index + end_index) // 2  # 가운데 or 중간왼쪽
             # (4) 2번째 종착역으로서, 중간에 조건을 만족하여 끝나는 종착역은 stack변수 소진 전 반복문 내에서if로 찾아서 끝낸다.
-            # stack변수의 소진(srt> end) 해서 끝나는 것이 아니라, 특별한  종착역이 있다면,
+            # stack변수의 소진(src> dst) 해서 끝나는 것이 아니라, 특별한  종착역이 있다면,
             # -> while문 속에서 업뎃되는 변수를 통해 if return으로 처리한다.
             if lst[mid_index] == target:
                 return mid_index

@@ -82,7 +82,7 @@ class Sections:
         # -> while문의 기준을 객체로두면, 시작특이점 객체
         # -> 그 전까지 가려면, self.node_count를 확인하면 될 것 같다.
         # for row in range(self.node_count):
-        #     print(f"{curr.lst_2d}", end=" ")
+        #     print(f"{curr.lst_2d}", dst=" ")
         #     curr = curr.next
         # => data가 없는 끝 특이점(tail)이 존재하면, 그것만 .next가 null이기 때문에
         #    while문을 필드검사한다.

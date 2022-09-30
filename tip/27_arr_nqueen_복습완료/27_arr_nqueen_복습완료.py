@@ -12,7 +12,7 @@ def n_queen(n, row, queens):
         return 1
 
     # (4) 자신의 처리는 보통 현재node를 출력해서 경로 확인용으로
-    # print(row, end= ' ')
+    # print(row, dst= ' ')
     # (5) 상태배열이 있다면 자신의 처리를 해준다.
     # -> 현재row에 사용할 col을 매핑해야하는데, col을 탐색해서 flag에 안걸리는 것을 넣어줘야한다.
     count = 0
@@ -59,7 +59,7 @@ if __name__ == '__main__':
     # => 상태배열의 index가 왔다갔다하지않고, 탐색할 stack변수(row index)와 상태배열의 index탐색순서가 동일할 때
     #    자식node마다 for문에서 진입전, 현재index의 value를 매번 덮어쓰기 해서 진행하면 된다.
     # => 시작node로부터 탐색하는 dfs는 인자에 srt만 주면 된다.
-    #    or srt node가 없다면, stack마다 증가하는 stack변수를 넣어준다.
+    #    or src node가 없다면, stack마다 증가하는 stack변수를 넣어준다.
     #    -> 그 앞에 종착역시 사용되어야할 상수가 있다면 넣어준다.
     #    -> 상태배열이 있다면, 상태배열을 같이
     #    => 집계해서 1개만 반환한다면, 변수에 넣을 필요 없다

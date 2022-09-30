@@ -6,7 +6,7 @@ input = sys.stdin.readline
 def count_by_range(lst, left_value, right_value=None):
     right_last_index_plus_1 = bisect_right(lst, right_value if right_value else left_value) # 1개만 주면, left_value의 갯수가 나오게 처리한다.
     left_first_index = bisect_left(lst, left_value)
-    # 갯수는 end - start + 1이지만, end에 이미 +1이 된 상황이라서, 빼기만 하면 된다.
+    # 갯수는 dst - start + 1이지만, end에 이미 +1이 된 상황이라서, 빼기만 하면 된다.
     return right_last_index_plus_1 - left_first_index
 
 
@@ -48,5 +48,5 @@ if __name__ == '__main__':
         right_last_index_plus_1 = bisect_right(lst,
                                                right_value if right_value else left_value)  # 1개만 주면, left_value의 갯수가 나오게 처리한다.
         left_first_index = bisect_left(lst, left_value)
-        # 갯수는 end - start + 1이지만, end에 이미 +1이 된 상황이라서, 빼기만 하면 된다.
+        # 갯수는 dst - start + 1이지만, end에 이미 +1이 된 상황이라서, 빼기만 하면 된다.
         return right_last_index_plus_1 - left_first_index

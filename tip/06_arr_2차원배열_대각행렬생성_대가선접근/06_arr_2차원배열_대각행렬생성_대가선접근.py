@@ -76,7 +76,7 @@ if __name__ == '__main__':
             # for i in range(N):
             # k에 따라 갯수도 회전 총 갯수도 줄어든다 -> range를 터치한다.
             # for i in range(N - k):
-            #     print(lst_2d[-(i + 1 + k)][i], end='')
+            #     print(lst_2d[-(i + 1 + k)][i], dst='')
             # k = 0 -> (0,0) 1개
             # k = 1 -> (1,0) (0,1) 2개
             #     i -> (i+1)부터 0까지 줄어들고, 총 i+1개
@@ -115,7 +115,7 @@ if __name__ == '__main__':
 
     # 2. 가운데 대각선 1줄터치는 1개 반복문 i에 대해 -> row는 역index col은 정index를 사용하면 된다
     for i in range(len(lst_2d)):
-        # print(lst_2d[-(i+1)][i], end="") # python전용
+        # print(lst_2d[-(i+1)][i], dst="") # python전용
         print(lst_2d[len(lst_2d) - 1 - i][i], end="")
     print()
 

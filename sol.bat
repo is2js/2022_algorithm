@@ -87,9 +87,10 @@ if "%1" == "bj" (
 )
 
 ::solution.py -> .\backjoon\첫번째인수명\첫번째인수명.py으로 복사한다
-if "%3" == "" copy %cd%\solution.py .\%CURRENT_FOLDER%\%2\%2.py
+::if "%3" == "" copy %cd%\solution.py .\%CURRENT_FOLDER%\%2\%2.py
 ::               만약, 2번째 인수가 존재한다면-> .\backjoon\첫번째인수명(2번째인수명).py으로 복사한다.
-if not "%3" == "" copy %cd%\solution.py .\%CURRENT_FOLDER%\%2\%2(%3).py
+::if not "%3" == "" copy %cd%\solution.py .\%CURRENT_FOLDER%\%2\%2(%3).py
+copy %cd%\solution.py .\%CURRENT_FOLDER%\%2\solution.py
 :: input, output.txt를 .\backjoon\첫번째인수명 폴더로 복사한다.
 copy %cd%\input.txt .\%CURRENT_FOLDER%\%2\input.txt
 copy %cd%\output.txt .\%CURRENT_FOLDER%\%2\output.txt

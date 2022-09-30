@@ -18,7 +18,7 @@ if __name__ == '__main__':
     ## 조합 풀기
     # result = set()
     # for i in range(1, len(s) + 1):
-    #     result |= set(map(''.join, itertools.combinations(s, i)))
+    #     result |= set(map(''.join, itertools.p_combinations(s, i)))
     # print(sorted(result, reverse=True)[0])
 
     ## stack으로 풀기

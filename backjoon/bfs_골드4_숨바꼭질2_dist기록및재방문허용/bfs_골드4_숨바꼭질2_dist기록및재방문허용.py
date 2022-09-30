@@ -10,14 +10,14 @@ if __name__ == '__main__':
     MAX = 100_000
 
     def bfs(start):
-        ## start부터 걸린시간/횟수를 세는 배열 -> dist[next] = dist[curr] + 1로 업데이트
+        ## start부터 걸린시간/횟수를 세는 배열 -> dst[next] = dst[curr] + 1로 업데이트
         dist = [0] * (MAX + 1)
         # => 만약, visisted와 겸용으로 사용하려면, -1로 초기화한다.
-        #    dist 0을 방문한 것으로 간주하기 위해서는 if dist != -1로 방문체킹해야한다.
-        # dist = [-1] * (MAX + 1)
+        #    dst 0을 방문한 것으로 간주하기 위해서는 if dst != -1로 방문체킹해야한다.
+        # dst = [-1] * (MAX + 1)
 
         ## 재방문 금지를 위해 if visitied:로 검사하고
-        ## 최단거리 재방문 허용하려면, if visited and dist[next] != dist[curr] + 1로 최단거리 아닌 조건까지 추가하여 검사한다.
+        ## 최단거리 재방문 허용하려면, if visited and dst[next] != dst[curr] + 1로 최단거리 아닌 조건까지 추가하여 검사한다.
         ## 방문횟수를 카운팅하려면, visited += 1로 체킹한다
         visited = [False] * (MAX + 1)
 
@@ -32,7 +32,7 @@ if __name__ == '__main__':
             curr = queue.popleft()
 
             ## 자신의 처리 -> 이미 방문체킹한 후보들만 꺼내니, 따로 체킹안해줘도된다. 넣을때만 하자.
-            # print(curr, end=" ")
+            # print(curr, dst=" ")
             # if curr == K:
             #     visit_count += 1
 
@@ -41,11 +41,11 @@ if __name__ == '__main__':
                 # 좌표이동은 이동해놓고 1순위로 범위검사부터 한다.
                 if not (0 <= next <= MAX):
                     continue
-                # if dist[next]: # 거리 기록이 있다면 방문체크로서 건너띈다.
+                # if dst[next]: # 거리 기록이 있다면 방문체크로서 건너띈다.
                 #     continue
                 ## 최단거리는 방문 허용할 때는, 추가조건을 붙여서 재방문을 방지한다.
                 if visited[next] and dist[next] != dist[curr] + 1:
-                # if dist[next] != -1 and dist[next] != dist[curr] + 1:
+                # if dst[next] != -1 and dst[next] != dst[curr] + 1:
                     continue
                 dist[next] = dist[curr] + 1
                 visited[next] += 1

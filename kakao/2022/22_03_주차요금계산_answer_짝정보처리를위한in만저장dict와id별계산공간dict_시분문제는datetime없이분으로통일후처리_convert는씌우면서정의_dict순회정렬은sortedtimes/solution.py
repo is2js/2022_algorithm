@@ -17,7 +17,7 @@ if __name__ == '__main__':
     for _ in range(int(input().strip())):
         records.append(input().strip())
 
-    #### 시분만으로 구성된 문제는 시->분으로 바꿔서 처리한다. end - start 분으로 계산해버리면 된다.
+    #### 시분만으로 구성된 문제는 시->분으로 바꿔서 처리한다. dst - start 분으로 계산해버리면 된다.
 
     #### 2개의 자료구조를 유지한다 ==> id별 저장 기록을 위한 hash를 여러개 유지할 수 있다.
     #### (1)id별 입차시 기록을 남기기 위한 intime hash
@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
     for r in records:
         time, number, inout = r.split()
-        ## (3) srt, end 중 srt만 hash에 저장한다
+        ## (3) src, dst 중 srt만 hash에 저장한다
         if inout == 'IN':
             #### (4) 할당시에도 변환메서드를 씌워서 넣어준다.
             # intime_hash[number] = time

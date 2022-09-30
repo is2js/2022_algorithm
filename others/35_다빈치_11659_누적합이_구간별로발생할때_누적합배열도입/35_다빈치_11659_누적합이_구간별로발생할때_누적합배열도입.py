@@ -39,7 +39,7 @@ if __name__ == '__main__':
     #  -> 이렇게 해놓으면, 2번째(5 4)까지의 누적합을 인덱싱으로 바로 알 수 있고
     #  ->  4번째(5 4 3 2)까지의 누적합을 인덱싱으로 바로 알 수 있고
     # 슬라이싱에서 생길 O(N)없이 각 구간까지의 누적합을 바로 알 수 있다.
-    # cf) (Slice	l[start:b]	O(b-start)	l[:] : O(len(l)-0) = O(N))
+    # cf) (Slice	stack[start:b]	O(b-start)	stack[:] : O(len(stack)-0) = O(N))
 
     sum_arr = []
     temp = 0

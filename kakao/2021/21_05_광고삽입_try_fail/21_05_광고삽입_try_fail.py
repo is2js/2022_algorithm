@@ -29,7 +29,7 @@ if __name__ == '__main__':
     # print(logs)
     # [[4815, 6314], [2431, 3600], [1550, 2909], [5459, 6809], [5864, 7350]]
 
-    ## log에 찍힌 srt, endtime를 section별 to로 하여 구간을 만든다.
+    ## log에 찍힌 src, endtime를 section별 to로 하여 구간을 만든다.
     sections = [0] + sorted(itertools.chain.from_iterable(logs))
     if play_time != sections[-1]:
         sections += [play_time]

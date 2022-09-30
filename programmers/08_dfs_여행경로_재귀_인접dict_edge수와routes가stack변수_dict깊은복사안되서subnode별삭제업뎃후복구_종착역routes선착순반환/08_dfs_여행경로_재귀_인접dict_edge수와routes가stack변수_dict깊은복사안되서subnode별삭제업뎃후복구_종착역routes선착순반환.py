@@ -14,7 +14,7 @@ def dfs(graph, N, node, routes):
         return routes
 
     # (5) 자신의 처리에서 보통은 방문체크 + 현재node를 출력해준다.
-    # print(node, end=' ')
+    # print(node, dst=' ')
 
     # (6) 인접node를 탐색하되, 한번 방문한edge는 pop시켜서 [방문체크 대신 edge체크]를 해준다.
     # for next_node in graph[node]:
