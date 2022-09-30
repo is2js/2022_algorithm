@@ -1,0 +1,5 @@
+Node [4, False]
+Node [1, False]
+Node [7, F]]alse]
+[Node [0, False], Node [1, False], Node [2, False], Node [3, False], Node [4, True], Node [5, False], Node [6, False], Node [7, False
+OOOOXOOO

@@ -1,0 +1,1 @@
+Node[3, False] [Node[0, False], Node[1, True], Node[2, False], Node[3, False], Node[4, True], Node[5, False], Node[6, False], Node[7, True]]
