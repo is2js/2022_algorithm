@@ -43,7 +43,7 @@ def dfs(node, end, is_trapped, distance):
 
 
 if __name__ == '__main__':
-    ## 미로탈출:https://school.programmers.co.kr/learn/courses/30/lessons/81304
+    ## 미로탈출: https://school.programmers.co.kr/learn/courses/30/lessons/81304
     n, start, end = map(int, input().split())
     roads = [list(map(int, input().split())) for _ in range(2)]
     traps = [int(input().strip())]

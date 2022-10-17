@@ -12,7 +12,7 @@ def dijkstra(n, graph, start, end, traps):
     # 3) visited 2차원에는 [traps별 state_bit ]를 traps갯수에 따른 모든 부분집합(경우의수)를 index에 미리 매핑해놔야하므로
     #    traps_state_bit의 모든 부분집합의 갯수이자 순차탐색은 range( 1<<len(traps)) 이다
     visited = [[False for _ in range(1 << len(traps))] for _ in range(n + 1)]
-    # cf) 모든 부분집합 1자리씩 구성하기
+    # cf) 모든 부분집합 1자리씩 처리한 배열 만들기
     # for subset in range(1 << n):
     #     temp = [0] * n
     #     ## ryon vs apeach를 1자리씩 채우면서 점수 비교

@@ -1,1 +1,2 @@
 -e "import sys\\nsys.stdin = open(\"input.txt\")\n\nT = int(input())\n\n\nfor tc in range(1, T+1):\n \n print(\"#{} \".format(tc, ))\n" 
+-e "import sys\\nsys.stdin = open(\"input.txt\")\n\nT = int(input())\n\n\nfor tc in range(1, T+1):\n \n print(\"#{} \".format(tc, ))\n" 

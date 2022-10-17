@@ -2,8 +2,8 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/input.txt" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/kakao/21_i_01_숫자문자열과영단어_복습_index일대일되는문자열은걍배열에다가매핑후그때의index가져다쓰기_find는실패시minus1로continue하며끝범위포함안시키는pos+len으로최대길이까지만검사/input.txt" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/kakao/21_i_01_숫자문자열과영단어_복습_index일대일되는문자열은걍배열에다가매핑후그때의index가져다쓰기_find는실패시minus1로continue하며끝범위포함안시키는pos+len으로최대길이까지만검사/output.txt" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/kakao/2021_internship/21_i_01_숫자문자열과영단어_복습_index일대일되는문자열은걍배열에다가매핑후그때의index가져다쓰기_find는실패시minus1로continue하며끝범위포함안시키는pos+len으로최대길이까지만검사/input.txt" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/kakao/2021_internship/21_i_01_숫자문자열과영단어_복습_index일대일되는문자열은걍배열에다가매핑후그때의index가져다쓰기_find는실패시minus1로continue하며끝범위포함안시키는pos+len으로최대길이까지만검사/output.txt" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/output.txt" charset="x-windows-949" />
   </component>
 </project>
