@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:/Users/is2js/pythonProject/2022_algorithm/Solution.py", line 10, in <module>
+    fg
+KeyboardInterrupt

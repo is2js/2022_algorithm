@@ -1,0 +1,3 @@
+[['Enter', 'uid1234'], ['Enter', 'uid4567'], ['Leave', 'uid1234'], ['Enter', 'uid1234']]
+{'uid1234': 'Prodo', 'uid4567': 'Ryan'}
+['Prodo님이 들어왔습니다.', 'Ryan님이 들어왔습니다.', 'Prodo님이 나갔습니다.', 'Prodo님이 들어왔습니다.']
