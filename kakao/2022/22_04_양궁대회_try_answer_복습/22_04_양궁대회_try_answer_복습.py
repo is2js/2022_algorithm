@@ -43,7 +43,7 @@ if __name__ == '__main__':
     # ryon_temp = [0] * 11
 
     ## 3. greedy 탐색을 한다.
-    max_diff = 0  # ryan- apeach
+    max_diff = 0  # ryan - apeach
 
     ## 4. greedy를 돌기전에, [case별 ryon배열]을 완성하기 위해, case를 먼저 만든다.
     ##    각 과녁당, 1이 들어와있으면, ryon이 화살을 더 많이 쏴 이긴 상태로 가정하고 만든다.
@@ -63,7 +63,7 @@ if __name__ == '__main__':
                 # case별로 원소에 1이 들어왔으면 ryon배열에 할당하여 완성하고, 그 점수도 반영한다.
                 # -> 이 때, 화살은 apeach보다 1개 많도록 배정한다.
                 ryon_temp[i] = info[i] + 1
-                # 배정한 만큼 count해야한다. 제한이 n으로 걸려잇기 때문에 다 완성하고 나중에 cut해준다.
+                # 배정한 만큼 count 해야한다. 제한이 n으로 걸려잇기 때문에 다 완성하고 나중에 cut해준다.
                 cnt += ryon_temp[i]
                 # 점수는 해당인덱스의 역인덱스로 산출한다고 했다
                 ryon += 11 - 1 - i

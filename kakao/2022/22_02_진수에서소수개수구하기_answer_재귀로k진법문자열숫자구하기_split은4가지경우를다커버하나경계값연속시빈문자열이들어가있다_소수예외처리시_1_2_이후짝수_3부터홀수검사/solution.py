@@ -48,6 +48,7 @@ def check(number):
 
 
 if __name__ == '__main__':
+    # 진수에서소수개수구하기: https://school.programmers.co.kr/learn/courses/30/lessons/92335
     n, k = map(int, input().split())
 
     #### n진법 -> 10진수를 k묶음(0-k-1)씩 묶어서 1단계 올려주는 것

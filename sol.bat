@@ -57,6 +57,17 @@ if "%1" == "bj" (
        GOTO:EOF
    )
    Set CURRENT_FOLDER=concept
+)  else if "%1" == "review" (
+   ::concept폴더가 없으면 일단 생성한다.
+   if not exist ".\review\" md ".\review"
+   ::review/ 첫번째인수명/ 으로 해당 문제의 폴더를 생성한다.
+   if not exist ".\review\%2" (
+       md ".\review\%2"
+   ) else (
+       echo "already solved problem"
+       GOTO:EOF
+   )
+   Set CURRENT_FOLDER=review
 )  else if "%1" == "tip" (
    ::concept폴더가 없으면 일단 생성한다.
    if not exist ".\tip\" md ".\tip"

@@ -5,5 +5,9 @@
     <file url="file://$PROJECT_DIR$/kakao/2021_internship/21_i_01_숫자문자열과영단어_복습_index일대일되는문자열은걍배열에다가매핑후그때의index가져다쓰기_find는실패시minus1로continue하며끝범위포함안시키는pos+len으로최대길이까지만검사/input.txt" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/kakao/2021_internship/21_i_01_숫자문자열과영단어_복습_index일대일되는문자열은걍배열에다가매핑후그때의index가져다쓰기_find는실패시minus1로continue하며끝범위포함안시키는pos+len으로최대길이까지만검사/output.txt" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/output.txt" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/review/3_k2203_id별필요한필드만큼hash_짝정보라면따로1개씩다만들지말고짝못이룰수있는정보를남기기위해시작필드와결과필드만hash_hash는동일type여러개OR누적계산값만key검사후없을시컬렉션OR누적초기값초기화_이후컬렉션append나+/input.txt" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/review/3_k2203_id별필요한필드만큼hash_짝정보라면따로1개씩다만들지말고짝못이룰수있는정보를남기기위해시작필드와결과필드만hash_hash는동일type여러개OR누적계산값만key검사후없을시컬렉션OR누적초기값초기화_이후컬렉션append나+/input.txt" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/review/3_k2203_id별필요한필드만큼hash_짝정보라면따로1개씩다만들지말고짝못이룰수있는정보를남기기위해시작필드와결과필드만hash_hash는동일type여러개OR누적계산값만key검사후없을시컬렉션OR누적초기값초기화_이후컬렉션append나+/output.txt" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/review/3_k2203_id별필요한필드만큼hash_짝정보라면따로1개씩다만들지말고짝못이룰수있는정보를남기기위해시작필드와결과필드만hash_hash는동일type여러개OR누적계산값만key검사후없을시컬렉션OR누적초기값초기화_이후컬렉션append나+/output.txt" charset="x-windows-949" />
   </component>
 </project>
